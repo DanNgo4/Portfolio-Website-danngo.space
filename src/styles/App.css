@@ -1,13 +1,29 @@
 /* <Universal> */
-body {
-  font-family: sans-serif;
-  font-size: 120%;
-  color: #212124;
-  background-color: #D3FFB3;
+div.App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
+  position: relative;
+  /* <Link> */
+  /* </Link> */
+}
+div.App main {
+  flex: 1;
+}
+div.App a {
+  text-decoration: none;
+}
+div.App a:hover {
+  color: #212124;
+  background-color: #D3FFB3;
+  transition-duration: 0.5s;
+}
+div.App a.logo {
+  float: left;
+  margin: 26px 0px 0px 26px;
+}
+div.App a.logo:hover {
+  background-color: transparent;
 }
 
 ::-moz-selection {
@@ -26,28 +42,11 @@ img::selection {
   background-color: transparent;
 }
 
-/* <Anchor> */
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  color: #212124;
-  background-color: #D3FFB3;
-  transition-duration: 0.5s;
-}
-
-/* </Anchor> */
 /* <Header> */
 header {
   background-color: #33AB5F;
   font-size: 150%;
   overflow: hidden;
-}
-header p {
-  float: left;
-  color: #212124;
-  margin-left: 24px;
 }
 header nav {
   float: right;
@@ -62,7 +61,11 @@ header nav ul li {
 header nav ul li a {
   float: right;
   color: #F5F4F2;
-  padding: 30px 24px;
+  padding: 40px 30px;
+}
+header nav ul li a.active {
+  color: #212124;
+  background-color: #D3FFB3;
 }
 
 /* </Header> */
@@ -76,14 +79,10 @@ article {
 /* </Article> */
 /* <Footer> */
 footer {
+  flex-shrink: 0;
+  width: 100%;
   background-color: #33AB5F;
   height: 200px;
-  margin-top: auto;
-}
-footer h1 {
-  float: left;
-  color: #212124;
-  margin-left: 30px;
 }
 
 /* </Footer> */
@@ -92,11 +91,14 @@ footer h1 {
 article.HomeArticle0 {
   float: left;
 }
+article.HomeArticle0 p a {
+  text-decoration: underline;
+}
 article.HomeArticle0 p a:hover {
   background-color: #93DCAE;
 }
 
-aside img {
+aside > img {
   float: right;
   max-width: 280px;
   height: auto;
@@ -112,50 +114,71 @@ article.HomeArticle1 {
 article.HomeArticle1 h2 {
   font-size: 300%;
 }
-
-.card {
-  display: inline-block;
+article.HomeArticle1 div.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+article.HomeArticle1 div.cards section.CardContainer {
   margin-right: 100px;
-  width: 300px;
+  width: 250px;
+  min-height: 200px;
   background-color: #F8E382;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
 }
-.card:hover {
+article.HomeArticle1 div.cards section.CardContainer:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  color: #212124;
+  background-color: #D3FFB3;
+  transition-duration: 0.5s;
 }
-
-#card2 {
+article.HomeArticle1 div.cards section.CardContainer a.card p {
+  word-wrap: break-word;
+  padding: 0px 40px;
+}
+article.HomeArticle1 div.cards #card2 {
   margin-right: -10px;
 }
 
-section.HomeSection0 {
-  padding: 40px;
+article.HomeArticle2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
   font-size: 200%;
+  padding: 100px 0px;
 }
-section.HomeSection0 h1 {
-  color: #3A4A40;
+article.HomeArticle2 h2 {
+  color: #212124;
+  margin: 0px 60px;
 }
-
-a.button {
-  border: 4px solid #006FAD;
-  border-radius: 100vmax;
-  padding: 16px 32px;
+article.HomeArticle2 span.arrow {
+  font-size: 200%;
+  margin: 0px 10px 0px 110px;
+}
+article.HomeArticle2 button {
+  margin-right: 100px;
+  border: 8px solid #006FAD;
+  border-radius: 5vmax;
+  padding: 32px 64px;
   font-size: 25px;
   font-weight: bold;
   background-color: #FDFBF7;
   cursor: pointer;
   transition-duration: 0.8s;
 }
-a.button:hover {
+article.HomeArticle2 button:hover {
   background-color: #006FAD;
   color: #FDFBF7;
 }
-a.button:visited {
+article.HomeArticle2 button:visited {
   color: #212124;
 }
 
-section.HomeSection1 {
+article.HomeArticle3 {
+  text-align: center;
   background-color: #93DCAE;
   color: #3A4A40;
   font-size: 200%;
@@ -187,47 +210,44 @@ section.HomeSection1 {
 /* <About> */
 main.AboutMain article {
   margin: 0;
-  padding: 150px 0px 0px 150px;
   background-size: cover;
   background-repeat: no-repeat;
 }
-main.AboutMain article div.AboutDescription {
+main.AboutMain article section.AboutDescription {
   width: 450px;
   background-color: rgba(255, 255, 173, 0.7);
 }
 main.AboutMain article.AboutArticle0 {
+  padding: 150px 0px 0px 150px;
   margin-top: 50px;
   height: 400px;
   background-image: url("images/Sword Lake1.jpg");
 }
 main.AboutMain article.AboutArticle1 {
+  padding: 150px 0px 0px 150px;
   height: 450px;
   background-image: url("images/Flinders Street Station1.jpg");
 }
-
-section {
+main.AboutMain article.AboutArticle2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  margin: 20px 0px;
+  padding: 40px 0px 45px 0px;
 }
-section #Social ul {
+main.AboutMain article.AboutArticle2 #Social ul {
   list-style-type: none;
   overflow: hidden;
 }
-section #Social ul li {
+main.AboutMain article.AboutArticle2 #Social ul li {
   margin-right: 40px;
   float: left;
 }
-section #Social ul li a {
+main.AboutMain article.AboutArticle2 #Social ul li a {
   float: right;
 }
 
 /* </About> */
-/* <Features> */
-/* </Features> */
 /* <Portfolio> */
 /* </Portfolio> */
 /* <Feedback> */
@@ -251,22 +271,22 @@ span.ast {
   color: red;
 }
 
-div.comment {
+section.comment {
   display: flex;
   flex-direction: row;
 }
-div.comment label,
-div.comment textarea {
+section.comment label,
+section.comment textarea {
   margin-top: 20px;
 }
 
-div.submit {
+section.submit {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-div.submit input {
+section.submit input {
   padding: 5px 15px;
   margin: 20px 25px;
 }

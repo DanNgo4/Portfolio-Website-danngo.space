@@ -1,22 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import Logo from "../images/Logo0.png";
 
 const NavBar = () => (
-    <>
-        <header>
-            <p>Logo</p>
+    <header>
+        <Link to="/" class="logo">
+            <img src={Logo} alt="Dan Ngo Logo" />
+        </Link>
 
-            <nav>
-                <ul>
-                    <li><NavLink to="/">                    Home</NavLink></li>
-                    <li><NavLink to="/about">               About</NavLink></li>
-                    <li><NavLink to="/portfolio">           Portfolio</NavLink></li>
-                    <li><NavLink to="/feedback">            Feedback</NavLink></li>
-                    <li><NavLink to="/portfolio#Resume">    Resume</NavLink></li>
-                    <li><NavLink to="/about#Social">        Contact</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-    </>
+        <nav>
+            <ul>
+                <li><NavLink to="/" activeclassname="active">                 Home</NavLink></li>
+                <li><NavLink to="/about" activeclassname="active">            About</NavLink></li>
+                <li><NavLink to="/portfolio" activeclassname="active">        Portfolio</NavLink></li>
+                <li><NavLink to="/feedback" activeclassname="active">         Feedback</NavLink></li>
+                <li><HashLink to="/portfolio#Resume" activeclassname="active">Resume</HashLink></li>
+                <li><HashLink to="/about#Social" activeclassname="active">    Contact</HashLink></li>
+            </ul>
+        </nav>
+    </header>
 );
 
 export default NavBar;
