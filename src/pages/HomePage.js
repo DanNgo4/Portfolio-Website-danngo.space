@@ -63,12 +63,18 @@ const HomePage = () => {
             <article className="HomeArticle3">
                 <h2>Tell me what you think</h2>
 
-                <section className="container">
-                    <Link to="/feedback">Kindly Drop Your Feedback</Link>
-                </section>
+                <section className="ExpandableBox">
+                    <Link to="/feedback">
+                        <div className="box1">
+                                <span>Kindly drop your</span>&nbsp;Feedback
+                        </div>
+                    </Link>
 
-                <section className="container">
-                    <Link to="/about">Contact Me Through Social Media</Link>
+                    <Link to="/about#Social">
+                        <div className="box2">
+                            Contact Me&nbsp;<span>through Social Media</span>
+                        </div>
+                    </Link>
                 </section>
             </article>
         </main>

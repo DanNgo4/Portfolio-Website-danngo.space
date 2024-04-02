@@ -183,29 +183,62 @@ article.HomeArticle3 {
   color: #3A4A40;
   font-size: 200%;
   margin-bottom: 0px;
+  padding: 50px 0px;
 }
 
-/* .container {
-    width: 30%;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden; 
-  }
+section.ExpandableBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+section.ExpandableBox a:hover {
+  background-color: transparent;
+}
+section.ExpandableBox a:visited {
+  color: #212124;
+}
 
-.container > a {
-    background-color: blue;
-    padding: 1em;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    position: relative; 
-    clip-path: inset(0px 100% 0px 0px); 
-    transition: clip-path 0.5s ease-in-out; 
-  }
+div.box1,
+div.box2 {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  padding: 20px;
+  background-color: #73AEFE;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: width 1.2s ease;
+  overflow: hidden;
+}
+div.box1 span,
+div.box2 span {
+  position: relative;
+  visibility: hidden;
+}
+div.box1:hover span,
+div.box2:hover span {
+  visibility: initial;
+}
 
-.container > a:hover {
-    clip-path: inset(0px 0px 0px 0px); 
-} */
+.box1 {
+  justify-content: flex-end;
+  width: 180px;
+  right: 50%;
+}
+.box1:hover {
+  width: 460px;
+}
+
+.box2 {
+  justify-content: flex-start;
+  width: 200px;
+  left: 50%;
+}
+.box2:hover {
+  width: 560px;
+}
+
 /* </Index> */
 /* <About> */
 main.AboutMain article {

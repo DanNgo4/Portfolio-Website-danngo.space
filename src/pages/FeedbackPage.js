@@ -1,3 +1,4 @@
+import { HashLink } from "react-router-hash-link";
 import { useEffect } from "react";
 
 const FeedbackPage = () => {
@@ -8,8 +9,10 @@ const FeedbackPage = () => {
     return (
         <main>
             <section class="FeedbackSection0">
-                <h1>Your Say!</h1>
-                <p>The form is currently only for display purposes. I haven't set up a database for it yet, so I'll see you later! ;&#41;</p><br />
+                <h1>Heading</h1>
+                <p>The form is currently only for display purposes. I haven't set up a database for it yet, so I'll see you later! ;&#41;</p>
+                <p>For now if you have any feedbacks on my website please feel free to contact me through <HashLink to="/about#Social">social media</HashLink> platforms.</p>
+                <br />
             </section>
         
             <article class="FormArticle0">
