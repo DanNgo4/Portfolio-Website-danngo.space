@@ -9,7 +9,7 @@ function App() {
 
   return (
     <HashRouter history={history}>
-      <div className="App">
+      <div className="App flex flex-col h-screen">
         <NavBar />
         <Pages />
         <Footer />

@@ -8,70 +8,63 @@ const FeedbackPage = () => {
 
     return (
         <main>
-            <section class="FeedbackSection0">
-                <h1>Heading</h1>
+            <section className="text-center my-10">
+                <h1 className="font-bold text-4xl">Heading</h1>
                 <p>The form is currently only for display purposes. I haven't set up a database for it yet, so I'll see you later! ;&#41;</p>
-                <p>For now if you have any feedbacks on my website please feel free to contact me through <HashLink to="/about#Social">social media</HashLink> platforms.</p>
+                <p>For now if you have any feedbacks on my website please feel free to contact me through <HashLink to="/about#Social" className="underline text-blue-500">social media</HashLink> platforms.</p>
                 <br />
             </section>
         
-            <article class="FormArticle0">
-                <h2>Form Name</h2>
-                <form id="feedback" method="POST">
-                    <fieldset>
-                        <legend>Personal Details</legend>
+            <article>
+                <h2 className="font-bold text-2xl text-center">Form Name</h2>
+                <form id="feedback" method="POST" className="FormArticle0 grid grid-row-3 justify-center">
+                    <fieldset className="border border-solid rounded border-gray-400 p-4">
+                        <legend className="text-left">Personal Details</legend>
 
-                        <p>
+                        <p className="grid grid-cols-3">
                             <label htmlFor="first">
-                                First Name<span class="ast">*</span>
+                                First Name<span className="text-red-500">*</span>
                             </label>
-                            <input type="text" id="first" required="required" />
+                            <input type="text" id="first" required="required" className="w-48 border border-solid rounded border-black"/>
                         </p>
 
-                        <p>
-                            <label htmlFor="last">
-                                Last Name<span class="ast">*</span>
+                        <p className="mt-5 grid grid-cols-3">
+                            <label htmlFor="last" >
+                                Last Name<span className="text-red-500">*</span>
                             </label>
-                            <input type="text" id="last" required="required" />
+                            <input type="text" id="last" required="required" className="w-48 border border-solid rounded border-black"/>
                         </p>
 
-                        <p>
+                        <p className="mt-5 grid grid-cols-3">
                             <label htmlFor="email">
                                 Email
                             </label>
-                            <input type="email" id="email" />
+                            <input type="email" id="email" className="w-48 border border-solid rounded border-black"/>
                         </p>
 
-                        <p>
+                        <p className="mt-5 grid grid-cols-3">
                             <label htmlFor="age">
-                                Age<span class="ast">*</span>
+                                Age<span className="text-red-500">*</span>
                             </label>
-                            <input type="number" id="age" required="required" />
-                        </p>
-
-                        <p>
-                            <label htmlFor="nation">
-                                Nationality<span class="ast">*</span>
-                            </label>
-                            <input type="text" id="nation" required="required" />
+                            <input type="number" id="age" required="required" className="w-48 border border-solid rounded border-black"/>
                         </p>
                     </fieldset>
                     <br />
-                    
-                    <fieldset>
+
+                    <fieldset className="border border-solid rounded border-gray-400 p-4">
                         <legend>Your Feedback</legend>
 
-                        <section class="comment">
+                        <section className="comment grid grid-cols-3">
                             <label htmlFor="comment">Comment</label>
-                            <textarea rows="10" cols="60" id="comment" placeholder="Tell me what you think about my website!" />
+                            <textarea rows="8" cols="50" id="comment" placeholder="Tell me what you think about my website!" className="col-span-2 mb-10 border border-solid rounded border-black p-2"/>
                         </section>
 
-                        <p>
+                        <p className="grid grid-cols-3">
                             <label htmlFor="rating">
-                                Rating<span class="ast">*</span>
+                                Rating<span className="text-red-500">*</span>
                             </label>
-                            <select id="rating" required="required" size="1">
-                                <option value="" disabled selected hidden>Rate my Website!</option>
+                            <select id="rating" required="required" size="1" className="border boder-solid rounded border-black">
+                                <option value="" defaultValue>Rate my Website!</option>
                                 <option value="10">10</option>
                                 <option value="9">9</option>
                                 <option value="8">8</option>
@@ -86,9 +79,9 @@ const FeedbackPage = () => {
                         </p>
                     </fieldset>
 
-                    <section class="submit">
-                        <input type="submit" value="Submit" />
-                        <input type="reset" value="Reset" />
+                    <section className="submit text-center">
+                        <input type="submit" value="Submit" className="w-24 py-3 mx-5 my-6 bg-gray-300 rounded-2xl hover:bg-white duration-500"/>
+                        <input type="reset" value="Reset" className="w-24 py-3 mx-5 my-6 bg-gray-300 rounded-2xl hover:bg-white duration-500"/>
                     </section>
                 </form>
             </article>
