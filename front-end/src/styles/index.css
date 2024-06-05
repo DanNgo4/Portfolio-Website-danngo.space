@@ -30,3 +30,13 @@ div.box1:hover span,
 div.box2:hover span {
   display: inline;
 }
+
+footer section ul li a.active {
+  text-decoration: underline;
+}
+
+footer .MuiDivider-root {
+  background-color: #F5F4F2;
+  width: 70vw;
+  margin: 0.5rem 0;
+}
