@@ -64,7 +64,7 @@ const FeedbackPage = () => {
                                 Rating<span className="text-red-500">*</span>
                             </label>
                             <select id="rating" required="required" size="1" className="border boder-solid rounded border-black">
-                                <option value="" defaultValue>Rate my Website!</option>
+                                <option value="" defaultValue disabled>Rate my Website!</option>
                                 <option value="10">10</option>
                                 <option value="9">9</option>
                                 <option value="8">8</option>

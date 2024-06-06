@@ -24,7 +24,11 @@ const Footer = () => (
                 <li className="float-left"><HashLink to="/about#Social"     className="text-[#F5F4F2] text-xl hover:underline">Contact</HashLink></li>
             </ul>
 
-            <Divider /> {/* Material UI component */}
+            <Divider style={{
+                backgroundColor: "#F5F4F2",
+                width: "70vw",
+                margin: "0.5rem 0",
+            }}/> {/* Material UI component */}
 
             <ul className="flex justify-end">
                 <li>
