@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Divider from "@mui/material/Divider";
 import MyDocument from "../components/Resume";
+import ProjectList from "../components/ProjectList";
 
 const PortfolioPage = () => {
     useEffect(() => {
@@ -8,7 +9,7 @@ const PortfolioPage = () => {
     }, []);
 
     return (
-        <main className="Portfolio">
+        <main>
             <h1 className="font-bold text-center text-5xl my-10">Portfolio Gallery</h1>
 
             <section className="ml-10 grid grid-cols-4 gap-16 w-[45vw] text-center mb-10">
@@ -41,14 +42,8 @@ const PortfolioPage = () => {
                 marginLeft: "5vw"
             }}/>
 
-            <article className="mx-[10vw] grid grid-cols-3 gap-4 p-20 text-center">
-                <section className="bg-red-500 w-1/3">asdfg</section>
-                <section className="bg-red-500 w-1/3">ailsdgf</section>
-                <section className="bg-red-500 w-1/3">alsdfb</section>
-
-                <section className="bg-red-500 w-1/3">asdfg</section>
-                <section className="bg-red-500 w-1/3">ailsdgf</section>
-                <section className="bg-red-500 w-1/3">alsdfb</section>
+            <article className="mx-[5vw] grid grid-cols-3 gap-x-16 gap-y-40 p-20 text-center">
+                <ProjectList />
             </article>
 
             <h2 className="text-center font-bold text-4xl mb-5">My Resume</h2>

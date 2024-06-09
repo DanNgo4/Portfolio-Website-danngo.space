@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import AboutPage from "./AboutPage";
 import PortfolioPage from "./PortfolioPage";
+import ProjectPage from "./ProjectPage";
 import FeedbackPage from "./FeedbackPage";
 import NotFoundPage from "./NotFoundPage";
 
@@ -11,6 +12,7 @@ const Pages = () => {
           <Route path="/"           element={<HomePage />} />
           <Route path="/about"      element={<AboutPage />} />
           <Route path="/portfolio"  element={<PortfolioPage />} />
+          <Route path="/portfolio/:projectName" element={<ProjectPage />} />
           <Route path="/feedback"   element={<FeedbackPage />} />
           <Route path="/*"          element={<NotFoundPage />} />
         </Routes>

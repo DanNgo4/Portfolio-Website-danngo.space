@@ -4,13 +4,13 @@ const MyDocument = () => (
     <iframe
         id="Resume"
         src={resume}
-        width="80%"
-        height="1125rem"
         loading="lazy"
         title="Dan Ngo Resume"
         style={{
             marginLeft: "10vw",
-            marginBottom: "5rem"
+            marginBottom: "5rem",
+            width: "80vw",
+            height: "124vh"
         }}
     />
 );
