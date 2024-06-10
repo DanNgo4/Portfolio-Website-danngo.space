@@ -7,7 +7,7 @@ const FeedbackPage = () => {
     }, []);
 
     return (
-        <main>
+        <main className="mx-4">
             <section className="text-center my-10">
                 <h1 className="font-bold text-4xl">Heading</h1>
                 <p>The form is currently only for display purposes. I haven't set up a database for it yet, so I'll see you later! ;&#41;</p>

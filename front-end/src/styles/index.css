@@ -25,8 +25,7 @@ header nav ul li a.active {
   background-color: #D3FFB3;
 }
 
-div.box1:hover span,
-div.box2:hover span {
+div.Box0:hover span {
   display: inline;
 }
 
