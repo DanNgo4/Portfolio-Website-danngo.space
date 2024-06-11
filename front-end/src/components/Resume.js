@@ -6,13 +6,7 @@ const MyDocument = () => (
         src={resume}
         loading="lazy"
         title="Dan Ngo Resume"
-        /* style={{
-            marginLeft: "10vw",
-            marginBottom: "5rem",
-            width: "80vw",
-            height: "124vh"
-        }} */
-        className="w-full max-w-[80vw] h-auto md:h-[124vh] mx-auto my-10 md:my-0"
+        className="w-full max-w-[90vw] md:max-w-[80vw] h-[124vh] mx-auto my-10 md:my-0"
     />
 );
 
