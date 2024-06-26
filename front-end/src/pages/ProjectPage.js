@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import projects from "../components/projects-content";
@@ -7,6 +8,14 @@ const ProjectPage = () => {
     const {projectName} = useParams();
 
     const project = projects.find(project => (project.name === projectName));
+
+    useEffect(() => {
+        if (project) {
+            document.title = project.title;
+        } else {
+            document.title = "Project Not Found"; // Or some default title
+        }
+    }, [project]);
 
     if (!project)
     {
@@ -25,7 +34,7 @@ const ProjectPage = () => {
                 <p key={i} className="my-5 max-w-[50vw] text-left ml-[25vw]">{paragraph}</p>
             ))}
         </main>
-    )
+    );
 };
 
 export default ProjectPage;
