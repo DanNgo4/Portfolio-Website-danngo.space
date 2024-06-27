@@ -13,28 +13,28 @@ const PortfolioPage = () => {
             <h1 className="font-bold text-center text-4xl md:text-5xl my-10">Portfolio Gallery</h1>
 
             <section className="ml-4 md:ml-10 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-16 w-[90vw] md:w-[50vw] text-center mb-10">
-            <h3 className="font-bold text-xl md:text-2xl">Sort By</h3>
+                <h3 className="font-bold text-xl md:text-2xl">Sort By</h3>
 
-            <select className="border border-solid rounded border-black p-2">
-                <option value="" defaultValue disabled>Date</option>
-                <option>Latest (Default)</option>
-                <option>Earliest</option>
-            </select>
+                <select className="port-filter-box">
+                    <option value="" defaultValue disabled>Date</option>
+                    <option>Latest (Default)</option>
+                    <option>Earliest</option>
+                </select>
 
-            <select className="border border-solid rounded border-black p-2">
-                <option value="" defaultValue disabled>Type</option>
-                <option>All</option>
-                <option>University Project</option>
-                <option>Personal Project</option>
-                <option>Team Project</option>
-            </select>
+                <select className="port-filter-box">
+                    <option value="" defaultValue disabled>Type</option>
+                    <option>All</option>
+                    <option>University Project</option>
+                    <option>Personal Project</option>
+                    <option>Team Project</option>
+                </select>
 
-            <select className="border border-solid rounded border-black p-2">
-                <option value="" defaultValue disabled>Status</option>
-                <option>All</option>
-                <option>Completed</option>
-                <option>In Progress</option>
-            </select>
+                <select className="port-filter-box">
+                    <option value="" defaultValue disabled>Status</option>
+                    <option>All</option>
+                    <option>Completed</option>
+                    <option>In Progress</option>
+                </select>
             </section>
 
             <Divider style={{

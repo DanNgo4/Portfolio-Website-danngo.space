@@ -11,47 +11,46 @@ const FeedbackPage = () => {
             <section className="text-center my-10">
                 <h1 className="font-bold text-4xl">Heading</h1>
                 <p>The form is currently only for display purposes. I haven't set up a database for it yet, so I'll see you later! ;&#41;</p>
-                <p>For now if you have any feedbacks on my website please feel free to contact me through <HashLink to="/about#Social" className="underline text-blue-500">social media</HashLink> platforms.</p>
-                <br />
+                <p>For now if you have any feedbacks on my website please feel free to contact me through <HashLink to="/about#Social" className="underline text-blue-500">social media</HashLink> platforms.</p>    
             </section>
         
             <article>
                 <h2 className="font-bold text-2xl text-center">Form Name</h2>
                 <form id="feedback" method="POST" className="FormArticle0 grid grid-row-3 justify-center">
-                    <fieldset className="border border-solid rounded border-gray-400 p-4">
+                    <fieldset className="feedback-fieldset">
                         <legend className="text-left">Personal Details</legend>
 
                         <p className="grid grid-cols-3">
                             <label htmlFor="first">
                                 First Name<span className="text-red-500">*</span>
                             </label>
-                            <input type="text" id="first" required="required" className="w-48 border border-solid rounded border-black"/>
+                            <input type="text" id="first" required className="feedback-input-box"/>
                         </p>
 
                         <p className="mt-5 grid grid-cols-3">
                             <label htmlFor="last" >
                                 Last Name<span className="text-red-500">*</span>
                             </label>
-                            <input type="text" id="last" required="required" className="w-48 border border-solid rounded border-black"/>
+                            <input type="text" id="last" required className="feedback-input-box"/>
                         </p>
 
                         <p className="mt-5 grid grid-cols-3">
                             <label htmlFor="email">
                                 Email
                             </label>
-                            <input type="email" id="email" className="w-48 border border-solid rounded border-black"/>
+                            <input type="email" id="email" className="feedback-input-box"/>
                         </p>
 
                         <p className="mt-5 grid grid-cols-3">
                             <label htmlFor="age">
                                 Age<span className="text-red-500">*</span>
                             </label>
-                            <input type="number" id="age" required="required" className="w-48 border border-solid rounded border-black"/>
+                            <input type="number" id="age" required className="feedback-input-box"/>
                         </p>
                     </fieldset>
                     <br />
 
-                    <fieldset className="border border-solid rounded border-gray-400 p-4">
+                    <fieldset className="feedback-fieldset">
                         <legend>Your Feedback</legend>
 
                         <section className="comment grid grid-cols-3">
@@ -63,7 +62,7 @@ const FeedbackPage = () => {
                             <label htmlFor="rating">
                                 Rating<span className="text-red-500">*</span>
                             </label>
-                            <select id="rating" required="required" size="1" className="border boder-solid rounded border-black">
+                            <select id="rating" required size="1" className="border boder-solid rounded border-black">
                                 <option value="" defaultValue disabled>Rate my Website!</option>
                                 <option value="10">10</option>
                                 <option value="9">9</option>
@@ -80,8 +79,8 @@ const FeedbackPage = () => {
                     </fieldset>
 
                     <section className="submit text-center">
-                        <input type="submit" value="Submit" className="w-24 py-3 mx-5 my-6 bg-gray-300 rounded-2xl hover:bg-white duration-500"/>
-                        <input type="reset" value="Reset" className="w-24 py-3 mx-5 my-6 bg-gray-300 rounded-2xl hover:bg-white duration-500"/>
+                        <input type="submit" value="Submit" className="feedback-action-btn"/>
+                        <input type="reset" value="Reset" className="feedback-action-btn"/>
                     </section>
                 </form>
             </article>

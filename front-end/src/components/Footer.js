@@ -16,12 +16,12 @@ const Footer = () => (
 
     <section className="flex flex-col items-center md:items-start w-full">
         <ul className="flex flex-col items-center md:flex-row mb-4 md:mb-0 text-center md:text-left">
-            <li className="mb-2 md:mb-0 md:mr-8"><NavLink to="/"                  className="text-[#F5F4F2] text-xl hover:underline">Home</NavLink></li>
-            <li className="mb-2 md:mb-0 md:mr-8"><NavLink to="/about"             className="text-[#F5F4F2] text-xl hover:underline">About</NavLink></li>
-            <li className="mb-2 md:mb-0 md:mr-8"><NavLink to="/portfolio"         className="text-[#F5F4F2] text-xl hover:underline">Portfolio</NavLink></li>
-            <li className="mb-2 md:mb-0 md:mr-8"><NavLink to="/feedback"          className="text-[#F5F4F2] text-xl hover:underline">Feedback</NavLink></li>
-            <li className="mb-2 md:mb-0 md:mr-8"><HashLink to="/portfolio#Resume" className="text-[#F5F4F2] text-xl hover:underline">Resume</HashLink></li>
-            <li><HashLink to="/about#Social"     className="text-[#F5F4F2] text-xl hover:underline">Contact</HashLink></li>
+            <li className="footer-li"><NavLink to="/"                  className="footer-btn">Home</NavLink></li>
+            <li className="footer-li"><NavLink to="/about"             className="footer-btn">About</NavLink></li>
+            <li className="footer-li"><NavLink to="/portfolio"         className="footer-btn">Portfolio</NavLink></li>
+            <li className="footer-li"><NavLink to="/feedback"          className="footer-btn">Feedback</NavLink></li>
+            <li className="footer-li"><HashLink to="/portfolio#Resume" className="footer-btn">Resume</HashLink></li>
+            <li><HashLink to="/about#Social"     className="footer-btn">Contact</HashLink></li>
         </ul>
 
         <Divider style={{

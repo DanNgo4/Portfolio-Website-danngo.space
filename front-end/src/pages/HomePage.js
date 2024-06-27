@@ -50,13 +50,13 @@ const HomePage = () => {
 
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 text-2xl md:text-4xl">
                     <Link to="/feedback" className="justify-self-center md:justify-self-end">
-                        <div className="Box0 w-[80vw] md:w-52 p-5 md:whitespace-nowrap bg-[#73AEFE] rounded-lg duration-[1200ms] overflow-hidden md:hover:w-[29.125rem]">
+                        <div className="Box0 md:w-52 md:hover:w-[29.125rem]">
                             <span className="md:hidden">Kindly drop your</span>&nbsp;Feedback
                         </div>
                     </Link>
 
                     <Link to="/about#Social" className="justify-self-center md:justify-self-start">
-                        <div className="Box0 w-[80vw] md:w-56 p-5 md:whitespace-nowrap bg-[#73AEFE] rounded-lg duration-[1200ms] overflow-hidden md:hover:w-[35.625rem]">
+                        <div className="Box0 md:w-56 md:hover:w-[35.625rem]">
                             Contact Me&nbsp;<span className="md:hidden">through Social Media</span>
                         </div>
                     </Link>

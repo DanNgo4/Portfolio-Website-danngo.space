@@ -38,27 +38,27 @@ const AboutPage = () => {
                     <ul className="flex justify-center flex-wrap">
                         <li className="mr-6 md:mr-12">
                             <Link to="https://www.facebook.com/danh.ngo04/" target="_blank">
-                                <img src={FacebookLogo} alt="Facebook Logo" className="w-10 h-10 md:w-16 md:h-16" />
+                                <img src={FacebookLogo} alt="Facebook Logo" className="about-contact-logo" />
                             </Link>
                         </li>
                         <li className="mr-6 md:mr-12">
                             <Link to="https://github.com/DanNgo4" target="_blank">
-                                <img src={GitHubLogo} alt="GitHub Logo" className="w-10 h-10 md:w-16 md:h-16" />
+                                <img src={GitHubLogo} alt="GitHub Logo" className="about-contact-logo" />
                             </Link>
                         </li>
                         <li className="mr-6 md:mr-12">
                             <Link to="mailto:danngo.au@gmail.com">
-                                <img src={EmailLogo} alt="Email Logo" className="w-10 h-10 md:w-16 md:h-16" />
+                                <img src={EmailLogo} alt="Email Logo" className="about-contact-logo" />
                             </Link>
                         </li>
                         <li className="mr-6 md:mr-12">
                             <Link to="https://www.linkedin.com/in/dan-ngo-71182b261/" target="_blank">
-                                <img src={LinkedInLogo} alt="LinkedIn Logo" className="w-10 h-10 md:w-16 md:h-16" />
+                                <img src={LinkedInLogo} alt="LinkedIn Logo" className="about-contact-logo" />
                             </Link>
                         </li>
                         <li>
                             <Link to="https://twitter.com/DanNgo04" target="_blank">
-                                <img src={XLogo} alt="X/Twitter Logo" className="w-10 h-10 md:w-16 md:h-16" />
+                                <img src={XLogo} alt="X/Twitter Logo" className="about-contact-logo" />
                             </Link>
                         </li>
                     </ul>

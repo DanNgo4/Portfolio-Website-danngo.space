@@ -6,6 +6,16 @@ const Projects = [
             "My developing portfolio website using React.js and Tailwind CSS for FrontEnd so far, soon to start deploying Back End, Database and Mobile version.",
         ],
         url: "https://github.com/DanNgo4/Portfolio-Website-danngo.space",
+        featured: false,
+    },
+
+    {
+        name: "meal-planner",
+        title: "Meal Planner",
+        content: [
+            "A team project developing a web application that allows users to choose a dish’s recipe with multiple types of information such as nutritional values, diet planning, recipe’s price based on location, etc"
+        ],
+        url: "https://github.com/DanNgo4/meal-planner-frontend",
         featured: true,
     },
 
