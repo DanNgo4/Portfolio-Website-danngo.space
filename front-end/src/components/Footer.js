@@ -1,12 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+
 import Divider from "@mui/material/Divider";
-import Logo from "../images/Logo0.png";
-import FacebookLogo from "../images/FacebookLogo1.png";
-import GitHubLogo from "../images/GitHubLogo1.png";
-import EmailLogo from "../images/EmailLogo1.png";
-import LinkedInLogo from "../images/LinkedInLogo1.png";
-import XLogo from "../images/XLogo1.png";
+
+import Logo from "../media/logos/Logo0.png";
+import FacebookLogo from "../media/logos/FacebookLogo1.png";
+import GitHubLogo from "../media/logos/GitHubLogo1.png";
+import EmailLogo from "../media/logos/EmailLogo1.png";
+import LinkedInLogo from "../media/logos/LinkedInLogo1.png";
+import XLogo from "../media/logos/XLogo1.png";
 
 const Footer = () => (
     <footer className="bg-[#33AB5F] p-8 md:p-16 flex flex-col md:flex-row items-center md:items-start">

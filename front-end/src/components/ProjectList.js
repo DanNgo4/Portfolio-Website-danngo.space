@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import contents from "../components/projects-content";
+
+import contents from "../media/content/ProjectsContent";
 
 const ProjectList = ({projects = contents, limited = false}) => {
     if (limited) {

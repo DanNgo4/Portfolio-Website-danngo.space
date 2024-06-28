@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+
 import Divider from "@mui/material/Divider";
-import MyDocument from "../components/Resume";
-import ProjectList from "../components/ProjectList";
+
+import Resume from "../../components/Resume";
+import ProjectList from "../../components/ProjectList";
 
 const PortfolioPage = () => {
     useEffect(() => {
@@ -48,7 +50,7 @@ const PortfolioPage = () => {
             </article>
 
             <h2 className="text-center font-bold text-4xl mb-5">My Resume</h2>
-            <MyDocument />
+            <Resume />
         </main>
     );
 };

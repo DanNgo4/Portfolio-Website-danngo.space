@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-import Logo from "../images/Logo0.png";
+import Logo from "../media/logos/Logo0.png";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);

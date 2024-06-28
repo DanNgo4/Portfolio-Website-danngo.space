@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import FacebookLogo from "../images/FacebookLogo0.png";
-import GitHubLogo from "../images/GitHubLogo0.png";
-import EmailLogo from "../images/EmailLogo0.png";
-import LinkedInLogo from "../images/LinkedInLogo0.png";
-import XLogo from "../images/XLogo0.png";
+
+import FacebookLogo from "../../media/logos/FacebookLogo0.png";
+import GitHubLogo from "../../media/logos/GitHubLogo0.png";
+import EmailLogo from "../../media/logos/EmailLogo0.png";
+import LinkedInLogo from "../../media/logos/LinkedInLogo0.png";
+import XLogo from "../../media/logos/XLogo0.png";
 
 const AboutPage = () => {
     useEffect(() => {

@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import projects from "../components/projects-content";
+
 import NotFoundPage from "./NotFoundPage";
+
+import projects from "../../media/content/ProjectsContent";
 
 const ProjectPage = () => {
     const {projectName} = useParams();
@@ -26,9 +28,11 @@ const ProjectPage = () => {
         <main className="min-h-[29vw]">
             <h1 className="my-10 mx-4 font-bold text-4xl text-center">{project.title}</h1>
 
-            <Link to={project.url} target="_blank" className="mb-10 flex justify-center">
-                <button className="border-4 border-solid border-black rounded-xl text-2xl px-8 py-5 hover:bg-[#fdfdfd] duration-700">GitHub Repository</button>
-            </Link>
+            <section className="flex justify-center">
+                <Link to={project.url} target="_blank" className="mb-10 ">
+                    <button className="border-4 border-solid border-black rounded-xl text-2xl px-8 py-5 hover:bg-[#FDFDFD] duration-700">GitHub Repository</button>
+                </Link>
+            </section>
 
             {project.content.map((paragraph, i) => (
                 <p key={i} className="my-5 max-w-[50vw] text-left ml-[25vw]">{paragraph}</p>

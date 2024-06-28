@@ -1,8 +1,7 @@
-import resume from "../images/DanNgoResume.pdf";
+import resume from "../media/others/DanNgoResume.pdf";
 
-const MyDocument = () => (
+const Resume = () => (
     <iframe
-        id="Resume"
         src={resume}
         loading="lazy"
         title="Dan Ngo Resume"
@@ -10,4 +9,4 @@ const MyDocument = () => (
     />
 );
 
-export default MyDocument;
+export default Resume;

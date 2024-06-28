@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import PFP from "../images/TransparentPFP0.png";
-import ProjectList from "../components/ProjectList";
+
+import ProjectList from "../../components/ProjectList";
+
+import PFP from "../../media/images/TransparentPFP0.png";
 
 const HomePage = () => {
     useEffect(() => {
