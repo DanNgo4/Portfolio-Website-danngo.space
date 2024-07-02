@@ -2,21 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --apple-white: #F5F4F2;
+  --apple-black: #212124;
+  --background: #D3FFB3;
+  --head-foot-bg: #33AB5F;
+  --article-bg: #93DCAE;
+  --article-heading: #3A4A40;
+  --about-section-bg: rgba(255,255,173,0.75);
+}
+
 @layer components {
   .nav-btn {
     @apply 
-      text-[#F5F4F2] 
+      text-[var(--apple-white)] 
       px-8 
       py-14 
-      hover:text-[#212124] 
-      hover:bg-[#D3FFB3] 
+      hover:text-[var(--apple-black)] 
+      hover:bg-[var(--background)] 
       duration-500
   }
 
   .nav-btn-mobile {
     @apply
       block 
-      text-[#F5F4F2] 
+      text-[var(--apple-white)] 
       px-8 
       py-10
   }
@@ -30,7 +40,7 @@
 
   .footer-btn {
     @apply
-    text-[#F5F4F2] 
+    text-[var(--apple-white)] 
     text-xl 
     md:hover:underline
   }

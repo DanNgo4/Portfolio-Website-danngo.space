@@ -2,6 +2,7 @@ const Projects = [
     {
         name: "portfolio-website",
         title: "Portfolio Website",
+        type: "Personal Project",
         content: [
             "My developing portfolio website using React.js and Tailwind CSS for FrontEnd so far, soon to start deploying Back End, and Database.",
 

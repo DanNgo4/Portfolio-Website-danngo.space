@@ -15,7 +15,7 @@ const ProjectPage = () => {
         if (project) {
             document.title = project.title;
         } else {
-            document.title = "Project Not Found"; // Or some default title
+            document.title = "Project Not Found";
         }
     }, [project]);
 

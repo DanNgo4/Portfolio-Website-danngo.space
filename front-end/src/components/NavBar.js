@@ -12,7 +12,7 @@ const NavBar = () => {
     };
 
     return (
-    <header className="bg-[#33AB5F]">
+    <header className="bg-[var(--head-foot-bg)]">
         <nav className="text-3xl py-6">
             <section className="containter mx-auto flex justify-between items-center">
                 <Link to="/" className="ml-8">
@@ -28,9 +28,9 @@ const NavBar = () => {
                     <li><HashLink to="/about#Social"     className="nav-btn">Contact</HashLink></li>
                 </ul>
 
-                <button id="menu-btn" className="text-[#F5F4F2] md:hidden focus:outline-none mr-8" onClick={toggleMenu}>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6 h16 M4 12 h16 M4 18 h16"></path>
+                <button id="menu-btn" className="text-[var(--apple-white)] md:hidden focus:outline-none mr-8" onClick={toggleMenu}>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6 h16 M4 12 h16 M4 18 h16"></path>
                     </svg>
                 </button>
             </section>

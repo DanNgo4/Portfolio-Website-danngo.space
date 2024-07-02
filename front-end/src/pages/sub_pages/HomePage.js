@@ -16,7 +16,7 @@ const HomePage = () => {
                 <section className="md:col-span-2">
                     <h2 className="text-3xl font-bold">Hello World! Welcome to Dan Ngo's Website</h2>
                     <p>I am delighted to have you in my digital space! My name's Dan, currently a second-year Computer Science student at&nbsp;
-                        <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="underline text-blue-500 hover:bg-[#93DCAE]">
+                        <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="underline text-blue-500 hover:bg-[var(--article-bg)]">
                             Swinburne University of Technology
                         </Link>.
                     </p><br />
@@ -28,8 +28,8 @@ const HomePage = () => {
                 <img src={PFP} alt="Dan Ngo's Profile" className="md:justify-self-end md:max-w-64 max-w-full"/>
             </article>
 
-            <article className="p-8 md:p-16 bg-[#93DCAE] text-center">
-                <h2 className="mb-12 text-[#3A4A40] text-4xl md:text-6xl font-bold">Check out my work!</h2>
+            <article className="p-8 md:p-16 bg-[var(--article-bg)] text-center">
+                <h2 className="mb-12 text-[var(--article-heading)] text-4xl md:text-6xl font-bold">Check out my work!</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <ProjectList limited={true} />
@@ -47,8 +47,8 @@ const HomePage = () => {
             </article>
 
 
-            <article className="p-16 bg-[#93DCAE] text-center px-10">
-                <h2 className="text-[#3A4A40] text-4xl md:text-6xl font-bold mb-12">Tell me what you think</h2>
+            <article className="p-16 bg-[var(--article-bg)] text-center px-10">
+                <h2 className="text-[var(--article-heading)] text-4xl md:text-6xl font-bold mb-12">Tell me what you think</h2>
 
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 text-2xl md:text-4xl">
                     <Link to="/feedback" className="justify-self-center md:justify-self-end">
