@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Divider from "@mui/material/Divider";
 
@@ -10,6 +10,10 @@ const PortfolioPage = () => {
         document.title = "My Projects";
     }, []);
 
+    const [sortDate, setSortDate] = useState("Latest");
+    const [sortType, setSortType] = useState("All");
+    const [sortStatus, setSortStatus] = useState("All");
+
     return (
         <main>
             <h1 className="font-bold text-center text-4xl md:text-5xl my-10">Portfolio Gallery</h1>
@@ -17,25 +21,25 @@ const PortfolioPage = () => {
             <section className="ml-4 md:ml-10 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-16 w-[90vw] md:w-[50vw] text-center mb-10">
                 <h3 className="font-bold text-xl md:text-2xl">Sort By</h3>
 
-                <select className="port-filter-box">
+                <select className="port-filter-box" value={sortDate} onChange={(e) => setSortDate(e.target.value)}>
                     <option value="" defaultValue disabled>Date</option>
-                    <option>Latest (Default)</option>
-                    <option>Earliest</option>
+                    <option value="Latest">Latest (Default)</option>
+                    <option value="Earliest">Earliest</option>
                 </select>
 
-                <select className="port-filter-box">
+                <select className="port-filter-box" value={sortType} onChange={(e) => setSortType(e.target.value)}>
                     <option value="" defaultValue disabled>Type</option>
-                    <option>All</option>
-                    <option>University Project</option>
-                    <option>Personal Project</option>
-                    <option>Team Project</option>
+                    <option value="All">All</option>
+                    <option value="University">University Project</option>
+                    <option value="Personal">Personal Project</option>
+                    <option value="Team">Team Project</option>
                 </select>
 
-                <select className="port-filter-box">
+                <select className="port-filter-box" value={sortStatus} onChange={(e) => setSortStatus(e.target.value)}>
                     <option value="" defaultValue disabled>Status</option>
-                    <option>All</option>
-                    <option>Completed</option>
-                    <option>In Progress</option>
+                    <option value="All">All</option>
+                    <option value={true}>Completed</option>
+                    <option value={false}>In Progress</option>
                 </select>
             </section>
 
@@ -46,7 +50,11 @@ const PortfolioPage = () => {
             }}/>
 
             <article className="md:mx-[5vw] grid grid-cols-1 2 md:grid-cols-3 gap-x-8 md:gap-x-16 gap-y-20 md:gap-y-40 p-10 md:p-20 text-center">
-                <ProjectList />
+                <ProjectList 
+                    sortDate={sortDate}
+                    sortType={sortType} 
+                    sortStatus={sortStatus} 
+                />
             </article>
 
             <h2 className="text-center font-bold text-4xl mb-5">My Resume</h2>

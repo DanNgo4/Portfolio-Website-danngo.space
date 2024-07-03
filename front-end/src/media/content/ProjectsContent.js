@@ -1,8 +1,13 @@
+const PROJECT_TYPE = ["University", "Personal", "Team"];
+const CURRENT_DATE = new Date().toJSON().slice(0, 10);
+
 const Projects = [
     {
         name: "portfolio-website",
         title: "Portfolio Website",
-        type: "Personal Project",
+        type: PROJECT_TYPE[1],
+        finished: false,
+        date: CURRENT_DATE,
         content: [
             "My developing portfolio website using React.js and Tailwind CSS for FrontEnd so far, soon to start deploying Back End, and Database.",
 
@@ -22,6 +27,9 @@ const Projects = [
     {
         name: "meal-planner",
         title: "Meal Planner",
+        type: PROJECT_TYPE[2],
+        finished: false,
+        date: CURRENT_DATE,
         content: [
             "A team project developing a web application that allows users to choose a dish’s recipe with multiple types of information such as nutritional values, diet planning, recipe’s price based on location, etc"
         ],
@@ -32,6 +40,9 @@ const Projects = [
     {
         name: "java-android-tic-tac-toe",
         title: "Tic Tac Toe Android Game in Java",
+        type: PROJECT_TYPE[1],
+        finished: true,
+        date: "2024-06-25",
         content: [
             "An Android-based Tic Tac Toe game application consisting of two main activities: MainActivity and GameActivity.",
             "The MainActivity class serves as the entry point of the application. It presents the user with a simple UI to input player names and start the game. The UI is defined in the activity_main.xml layout file and includes: - TextViews for displaying static text, such as the title \"Tic Tac Toe\" and developer's name \"Dan Ngo\". - EditTexts for players to enter their names. - Button to start the game, which is linked to the startGame method. The startGame method retrieves the entered player names, packs them into an Intent, and starts the GameActivity. If no names are entered, defaults (\"Player A\" and \"Player B\") are used.",
@@ -46,6 +57,9 @@ const Projects = [
     {
         name: "data-science-project-in-knime",
         title: "Data Cleaning and Analytics in Knime",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2024-05-10",
         content: [
             "A project involves cleaning and preparing a dataset of 100,000 entries, and building Naïve Bayes and Random Forest models in KNIME for prediction.",
 
@@ -64,6 +78,9 @@ const Projects = [
     {
         name: "c-sharp-oop-game",
         title: "OOP Game in C#",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2023-11-05",
         content: [
             "A simple game I created with C# and SplashKit library, using Object-Oriented Programming design principles.",
 
@@ -86,6 +103,9 @@ const Projects = [
     {
         name: "sql-nosql-db-design",
         title: "SQL + NoSQL Database Design",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2023-11-06",
         content: [
             "A project where I design a MySQL database in the first half, then migrate it to MongoDB in the second half to conduct some researches.",
 
@@ -127,6 +147,9 @@ const Projects = [
     {
         name: "website-design-front-end",
         title: "Website Design (FrontEnd)",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2023-04-17",
         content: [
             "This is a team project consists of 5 college students designing a website's Front End (using HTML and CSS only) for an imaginary tech company.",
             "For further descriptions please view the GitHub repository including the pdf report file and demonstration video"
@@ -138,6 +161,9 @@ const Projects = [
     {
         name: "website-design-back-end",
         title: "Website Design (BackEnd)",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2023-06-01",
         content: [
             "Second part extending the first uni project (Website Design (FrontEnd)). Our team with 4 members this time used PHP and MySQL database to implement the existing interface's backend.",
             "For further descriptions please view the GitHub repository including the pdf report file and demonstration video"
@@ -149,6 +175,9 @@ const Projects = [
     {
         name: "ruby-music-player",
         title: "Ruby Music Player",
+        type: PROJECT_TYPE[0],
+        finished: true,
+        date: "2023-06-04",
         content: [
             "A simple music player developed using Ruby and the Gosu library. It provides a graphical user interface (GUI) for users to browse albums, select tracks, and control playback.",
 
