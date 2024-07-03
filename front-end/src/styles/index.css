@@ -119,15 +119,15 @@ img::selection {
   background-color: transparent;
 }
 
-header nav ul li a.active {
+header a.active {
   color: #212124;
   background-color: #D3FFB3;
 }
 
-div.Box0:hover span {
-  display: inline;
+footer a.active {
+  text-decoration: underline;
 }
 
-footer section ul li a.active {
-  text-decoration: underline;
+div.Box0:hover span {
+  display: inline;
 }

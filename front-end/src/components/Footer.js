@@ -34,7 +34,7 @@ const Footer = () => (
 
             <ul className="flex justify-center md:justify-end w-full">
                 <li>
-                    <Link to="https://www.facebook.com/danh.ngo04/" target="_blank"><img src={FacebookLogo} alt={"Facebook Logo"} className="h-8" /></Link>
+                    <Link to="https://www.facebook.com/danh.ngo04/" target="_blank"><img src={FacebookLogo} alt="Facebook Logo" className="h-8" /></Link>
                 </li>
                 <li className="ml-6">
                     <Link to="https://github.com/DanNgo4" target="_blank"><img src={GitHubLogo} alt="GitHub Logo" className="h-8" /></Link>
