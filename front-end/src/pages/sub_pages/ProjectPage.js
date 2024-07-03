@@ -6,7 +6,7 @@ import NotFoundPage from "./NotFoundPage";
 import ProjectUpvote from "../../components/ProjectUpvote";
 import ProjectCommentForm from "../../components/ProjectCommentForm";
 
-import projects from "../../media/content/ProjectsContent";
+import projects from "../../media/content/ProjectsAttributesList";
 
 const ProjectPage = () => {
     const {projectName} = useParams();
@@ -26,7 +26,7 @@ const ProjectPage = () => {
     }
 
     return (
-        <main className="min-h-[29vw]">
+        <main className="min-h-[29vw] max-w-[50vw] ml-[25vw] text-left">
             <h1 className="my-10 mx-4 font-bold text-4xl text-center">{project.title}</h1>
 
             <section className="flex justify-center">
@@ -35,15 +35,15 @@ const ProjectPage = () => {
                 </Link>
             </section>
 
-            {project.content.map((paragraph, i) => (
-                <p key={i} className="my-5 max-w-[50vw] text-left ml-[25vw]">{paragraph}</p>
-            ))}
+            <article className="my-5">
+                <h2 className="mb-8 font-semibold text-xl text-center">{project.introduction}</h2>
+
+                {project.content}
+            </article>
 
             <article className="mt-16">
-                <div>
-                    <ProjectUpvote />
-                    <ProjectCommentForm />
-                </div>
+                <ProjectUpvote />
+                <ProjectCommentForm />
             </article>
         </main>
     );

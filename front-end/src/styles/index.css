@@ -72,11 +72,16 @@
       p-2
   }
 
+  .project-text {
+    @apply
+      my-4
+  }
+
   .project-input-box {
     @apply
       border-2 
       border-solid 
-      rounded 
+      rounded-lg
       border-black
       p-2
       mb-4
