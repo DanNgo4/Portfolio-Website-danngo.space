@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import IconButton from "@mui/material/IconButton";
-import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-
 import NotFoundPage from "./NotFoundPage";
+
+import ProjectUpvote from "../../components/ProjectUpvote";
+import ProjectCommentForm from "../../components/ProjectCommentForm";
 
 import projects from "../../media/content/ProjectsContent";
 
 const ProjectPage = () => {
     const {projectName} = useParams();
     const project = projects.find(project => (project.name === projectName));
-
-    const [projectInfo, setProjectInfo] = useState({ upvotes: 0 });
-    const [like, setLike] = useState(false);
-
-    const toggleUpvote = () => {
-        setLike(!like);
-
-        if (!like) {
-            projectInfo.upvotes++;
-        } else {
-            projectInfo.upvotes--;
-        }
-    }
 
     useEffect(() => {
         if (project) {
@@ -53,12 +39,11 @@ const ProjectPage = () => {
                 <p key={i} className="my-5 max-w-[50vw] text-left ml-[25vw]">{paragraph}</p>
             ))}
 
-            <article className="flex justify-center">
-                <IconButton color="default" onClick={toggleUpvote}>
-                    {like ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
-                </IconButton>
-
-                <p className="p-2">This project has {projectInfo.upvotes} upvotes(s)</p>
+            <article className="mt-16">
+                <div>
+                    <ProjectUpvote />
+                    <ProjectCommentForm />
+                </div>
             </article>
         </main>
     );

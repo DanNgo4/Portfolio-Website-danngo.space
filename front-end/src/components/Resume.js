@@ -2,6 +2,7 @@ import resume from "../media/others/DanNgoResume.pdf";
 
 const Resume = () => (
     <iframe
+        id="Resume" // navigation
         src={resume}
         loading="lazy"
         title="Dan Ngo Resume"

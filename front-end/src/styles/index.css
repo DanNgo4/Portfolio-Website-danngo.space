@@ -72,6 +72,16 @@
       p-2
   }
 
+  .project-input-box {
+    @apply
+      border-2 
+      border-solid 
+      rounded 
+      border-black
+      p-2
+      mb-4
+  }
+
   .feedback-fieldset {
     @apply
       border 
