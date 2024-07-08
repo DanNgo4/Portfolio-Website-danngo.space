@@ -24,5 +24,3 @@ yarn-error.log*
 
 #original images
 /src/original_images
-
-/src/reportWebVitals.js
