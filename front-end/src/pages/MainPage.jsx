@@ -7,8 +7,12 @@ import ProjectPage from "./sub_pages/ProjectPage";
 import FeedbackPage from "./sub_pages/FeedbackPage";
 import NotFoundPage from "./sub_pages/NotFoundPage";
 
+import ScrollToTop from "../components/ScrollToTop";
+
 const MainPage = () => {
     return (
+      <>
+        <ScrollToTop />
         <Routes>
           <Route path="/"                       element={<HomePage />} />
           <Route path="/about"                  element={<AboutPage />} />
@@ -17,6 +21,7 @@ const MainPage = () => {
           <Route path="/feedback"               element={<FeedbackPage />} />
           <Route path="/*"                      element={<NotFoundPage />} />
         </Routes>
+      </>
     );
 };
 

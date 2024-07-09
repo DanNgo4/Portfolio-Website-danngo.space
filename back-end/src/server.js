@@ -1,18 +1,9 @@
 import express from "express";
 
 const app = express();
-app.use(express.json());
 
-app.post("/hello", (req, res) => {
-    res.send(`Hello ${req.body.name}!`);
-});
-
-app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "dist/index.html"), function (err) {
-        if (err) {
-            res.status(500).send(err);
-        }
-    });
+app.post("/hello", function (req, res) {
+    res.send("Hello!");
 });
 
 app.listen(8000, () => {

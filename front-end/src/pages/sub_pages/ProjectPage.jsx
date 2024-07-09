@@ -5,6 +5,7 @@ import NotFoundPage from "./NotFoundPage";
 
 import ProjectUpvote from "../../components/ProjectUpvote";
 import ProjectCommentForm from "../../components/ProjectCommentForm";
+import ProjectCommentsList from "../../components/ProjectCommentsList";
 
 import projects from "../../media/content/ProjectsAttributesList";
 
@@ -50,6 +51,7 @@ const ProjectPage = () => {
             <article className="mt-16">
                 <ProjectUpvote />
                 <ProjectCommentForm />
+                <ProjectCommentsList />
             </article>
         </main>
     );
