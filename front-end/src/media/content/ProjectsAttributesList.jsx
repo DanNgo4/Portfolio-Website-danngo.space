@@ -1,14 +1,14 @@
-import PortfolioWebsite from "./ProjectsContent/PortfolioWebsite";
-import MealPlanner from "./ProjectsContent/MealPlanner";
+import PortfolioWebsite from "./ProjectsContent/PortfolioWebsite/PortfolioWebsite";
+import MealPlanner from "./ProjectsContent/MealPlanner/MealPlanner";
 import TTTAndroidJava from "./ProjectsContent/TTTAndroidJava/TTTAndroidJava";
 import DataScienceKnime from "./ProjectsContent/DataScienceKnime/DataScienceKnime";
-import DBDesign from "./ProjectsContent/DBDesign";
-import CSharpOOP from "./ProjectsContent/CSharpOOP";
-import RubyMusicPlayer from "./ProjectsContent/RubyMusicPlayer";
-import WebBackEnd from "./ProjectsContent/WebsiteBackEnd";
-import WebFrontEnd from "./ProjectsContent/WebsiteFrontEnd";
+import DBDesign from "./ProjectsContent/DBDesign/DBDesign";
+import CSharpOOP from "./ProjectsContent/CSharpOOP/CSharpOOP";
+import RubyMusicPlayer from "./ProjectsContent/RubyMusicPlayer/RubyMusicPlayer";
+import WebBackEnd from "./ProjectsContent/WebsiteBackEnd/WebsiteBackEnd";
+import WebFrontEnd from "./ProjectsContent/WebsiteFrontEnd/WebsiteFrontEnd";
 
-const PROJECT_TYPE = ["University", "Personal", "Team"];
+const PROJECT_TYPE = ["University Project", "Personal Project", "Team Project"];
 const CURRENT_DATE = new Date().toJSON().slice(0, 10);
 
 const Projects = [
@@ -121,5 +121,20 @@ const Projects = [
         featured: false,
     },
 ];
+
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    
+    return `${day < 10 ? '0' + day : day}-${date.toLocaleString("default", { month: "short" })}-${date.getFullYear()}`;
+};
+
+for (let p of Projects) {
+    if (p.finished) {
+        p.info = `Finished date: ${formatDate(p.date)}`;
+    } else {
+        p.info = "Status: In Progress";
+    }
+}
 
 export default Projects;

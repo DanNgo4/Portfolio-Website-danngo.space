@@ -85,6 +85,8 @@
       border-black
       p-2
       mb-4
+      w-[70vw]
+      md:w-96
   }
 
   .feedback-fieldset {

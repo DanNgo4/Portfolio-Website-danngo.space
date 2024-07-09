@@ -1,3 +1,7 @@
+import ProjectFigure from "../../../../components/ProjectFigure";
+
+import Figure1 from "./Figure1.png";
+
 const RubyMusicPlayer = () => {
     return (
         <section>
@@ -20,6 +24,7 @@ const RubyMusicPlayer = () => {
             <p className="project-text">Playback Control: Playback controls, including play/pause, volume adjustment, and track navigation, are implemented to provide users with control over the music playback experience.</p>
 
             <p className="project-text">Conclusion: This music player project demonstrates the use of Ruby and the Gosu library to create a basic graphical interface for music playback. It provides users with an intuitive way to explore albums, select tracks, and control playback, offering a simple yet functional music listening experience.</p>
+            <ProjectFigure src={Figure1} alt="A music player created in Ruby" title="Figure 1: The program's interface" />
         </section>
     );
 };

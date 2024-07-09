@@ -5,7 +5,7 @@ const ProjectCommentForm = () => {
     const [comment, setComment] = useState("");
 
     return (
-        <section>
+        <section className="">
             <h2 className="font-bold text-2xl mb-4">Add a comment</h2>
 
             <form onSubmit={(e) => {e.preventDefault()}}>
@@ -16,7 +16,7 @@ const ProjectCommentForm = () => {
                         type="text"
                         value={name}
                         onChange={e => setName(e.target.value)}
-                        className="project-input-box w-96 h-12"
+                        className="project-input-box h-12"
                     />
                 </p>
 
@@ -27,12 +27,11 @@ const ProjectCommentForm = () => {
                         value={comment}
                         onChange={e => setComment(e.target.value)}
                         rows="5"
-                        cols="36"
                         className="project-input-box"
                     />
                 </p>
 
-                <button className="w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]">Add Comment</button>
+                <button className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]">Add Comment</button>
             </form>
         </section>
     );

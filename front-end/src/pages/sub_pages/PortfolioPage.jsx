@@ -30,9 +30,9 @@ const PortfolioPage = () => {
                 <select className="port-filter-box" value={sortType} onChange={(e) => setSortType(e.target.value)}>
                     <option value="" defaultValue disabled>Type</option>
                     <option value="All">All</option>
-                    <option value="University">University Project</option>
-                    <option value="Personal">Personal Project</option>
-                    <option value="Team">Team Project</option>
+                    <option value="University Project">University Project</option>
+                    <option value="Personal Project">Personal Project</option>
+                    <option value="Team Project">Team Project</option>
                 </select>
 
                 <select className="port-filter-box" value={sortStatus} onChange={(e) => setSortStatus(e.target.value)}>
