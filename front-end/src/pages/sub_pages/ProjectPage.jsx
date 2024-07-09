@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import NotFoundPage from "./NotFoundPage";
@@ -10,6 +10,7 @@ import ProjectCommentsList from "../../components/ProjectCommentsList";
 import projects from "../../media/content/ProjectsAttributesList";
 
 const ProjectPage = () => {
+    const [projectInfo] = useState({ upvotes: 0, comments: [] });
     const {projectName} = useParams();
     const project = projects.find(project => (project.name === projectName));
 
@@ -49,9 +50,9 @@ const ProjectPage = () => {
             </article>
 
             <article className="mt-16">
-                <ProjectUpvote />
+                <ProjectUpvote initialUpvotes={projectInfo.upvotes} />
                 <ProjectCommentForm />
-                <ProjectCommentsList />
+                <ProjectCommentsList comments={projectInfo.comments} />
             </article>
         </main>
     );
