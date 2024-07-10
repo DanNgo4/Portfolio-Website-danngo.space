@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import axios from "axios";
 
 import IconButton from "@mui/material/IconButton";
 import ThumbUp from "@mui/icons-material/ThumbUpAlt";
 import ThumbUpOff from "@mui/icons-material/ThumbUpOffAlt";
 
-const ProjectUpvote = ({ initialUpvotes }) => {
+const ProjectUpvote = ({ initialUpvotes, projectID }) => {
     const [like, setLike] = useState(false);
-    const [upvotes, setUpvotes] = useState(initialUpvotes);
+    const [upvotes, setUpvotes] = useState(0);
 
-    const toggleUpvote = () => {
+    useEffect(() => {
+        setUpvotes(initialUpvotes); // Update upvotes after initial render
+    }, [initialUpvotes]);
+
+    const toggleUpvote = async () => {
         setLike(!like);
 
-        if (!like) {
-            setUpvotes(upvotes + 1);
-        } else {
-            setUpvotes(upvotes - 1);
+        try {
+            const url = `/api/portfolio/${projectID}/upvote`;
+            const method = like ? 'DELETE' : 'PUT';
+            const res = await axios({ method, url });
+            setUpvotes(res.data.upvotes); 
+        } catch (error) {
+            console.error("Error updating upvotes:", error);
         }
     };
 

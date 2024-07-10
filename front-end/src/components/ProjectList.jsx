@@ -10,7 +10,7 @@ const ProjectList = ({
         return (
             <>
                 {projects.filter(project => project.featured).map(project => (
-                    <Link key={project.name} to={`/portfolio/${project.name}`} className="justify-self-center max-w-80 min-h-56 bg-[#F8E382] p-8 shadow-xl hover:bg-[var(--background)] duration-500" target="_blank">
+                    <Link key={project.id} to={`/portfolio/${project.id}`} className="justify-self-center max-w-80 min-h-56 bg-[#F8E382] p-8 shadow-xl hover:bg-[var(--background)] duration-500" target="_blank">
                         <h3 className="font-bold text-xl mb-4">{project.title}</h3>
                         <p>{project.introduction}</p>
                     </Link>
@@ -35,7 +35,7 @@ const ProjectList = ({
     return (
     <>
         {filteredProjects.map(project => (
-            <Link key={project.name} to={`/portfolio/${project.name}`} className="bg-[var(--article-bg)] p-5 md:p-8 shadow-xl hover:bg-[#00ADAC] duration-500 rounded-2xl w-3/4 justify-center min-h-60 mx-auto flex flex-col" target="_blank">
+            <Link key={project.id} to={`/portfolio/${project.id}`} className="bg-[var(--article-bg)] p-5 md:p-8 shadow-xl hover:bg-[#00ADAC] duration-500 rounded-2xl w-3/4 justify-center min-h-60 mx-auto flex flex-col" target="_blank">
                 <h3 className="font-bold text-xl mb-4">{project.title}</h3>
                 <p className="flex-grow">{project.introduction}</p>
 

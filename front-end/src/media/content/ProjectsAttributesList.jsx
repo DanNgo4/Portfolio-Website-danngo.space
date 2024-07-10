@@ -13,7 +13,7 @@ const CURRENT_DATE = new Date().toJSON().slice(0, 10);
 
 const Projects = [
     {
-        name: "portfolio-website",
+        id: "portfolio-website",
         title: "Portfolio Website",
         type: PROJECT_TYPE[1],
         finished: false,
@@ -25,7 +25,7 @@ const Projects = [
     }, 
 
     {
-        name: "meal-planner",
+        id: "meal-planner",
         title: "Meal Planner",
         type: PROJECT_TYPE[2],
         finished: false,
@@ -37,7 +37,7 @@ const Projects = [
     },
 
     {
-        name: "java-android-tic-tac-toe",
+        id: "java-android-tic-tac-toe",
         title: "Tic Tac Toe Android Game in Java",
         type: PROJECT_TYPE[1],
         finished: true,
@@ -50,7 +50,7 @@ const Projects = [
 
     
     {
-        name: "data-science-project-in-knime",
+        id: "data-science-project-in-knime",
         title: "Data Cleaning and Analytics in Knime",
         type: PROJECT_TYPE[0],
         finished: true,
@@ -62,7 +62,7 @@ const Projects = [
     },
 
     {
-        name: "sql-nosql-db-design",
+        id: "sql-nosql-db-design",
         title: "SQL + NoSQL Database Design",
         type: PROJECT_TYPE[0],
         finished: true,
@@ -74,7 +74,7 @@ const Projects = [
     },
 
     {
-        name: "c-sharp-oop-game",
+        id: "c-sharp-oop-game",
         title: "OOP Game in C#",
         type: PROJECT_TYPE[0],
         finished: true,
@@ -86,7 +86,7 @@ const Projects = [
     },
 
     {
-        name: "ruby-music-player",
+        id: "ruby-music-player",
         title: "Ruby Music Player",
         type: PROJECT_TYPE[0],
         finished: true,
@@ -98,7 +98,7 @@ const Projects = [
     },
 
     {
-        name: "website-design-back-end",
+        id: "website-design-back-end",
         title: "Website Design (BackEnd)",
         type: PROJECT_TYPE[0],
         finished: true,
@@ -110,7 +110,7 @@ const Projects = [
     },
 
     {
-        name: "website-design-front-end",
+        id: "website-design-front-end",
         title: "Website Design (FrontEnd)",
         type: PROJECT_TYPE[0],
         finished: true,
