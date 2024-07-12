@@ -1,3 +1,7 @@
-/node_modules
+node_modules
 
 /build
+
+credentials.json
+
+node_modules/
