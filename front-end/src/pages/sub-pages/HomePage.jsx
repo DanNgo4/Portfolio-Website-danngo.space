@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
-import ProjectList from "../../components/ProjectList";
+import ProjectList from "../../components/portfolio-page/ProjectList";
 
 import PFP from "../../media/images/TransparentPFP0.png";
 
@@ -51,17 +52,17 @@ const HomePage = () => {
                 <h2 className="text-[var(--article-heading)] text-4xl md:text-6xl font-bold mb-12">Tell me what you think</h2>
 
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 text-2xl md:text-4xl">
-                    <Link to="/feedback" className="justify-self-center md:justify-self-end">
+                    <HashLink smooth to="/portfolio/portfolio-website#Feedback" className="justify-self-center md:justify-self-end">
                         <div className="Box0 md:w-52 md:hover:w-[29.125rem]">
                             <span className="md:hidden">Kindly drop your</span>&nbsp;Feedback
                         </div>
-                    </Link>
+                    </HashLink>
 
-                    <Link to="/about#Social" className="justify-self-center md:justify-self-start">
+                    <HashLink smooth to="/about#Social" className="justify-self-center md:justify-self-start">
                         <div className="Box0 md:w-56 md:hover:w-[35.625rem]">
                             Contact Me&nbsp;<span className="md:hidden">through Social Media</span>
                         </div>
-                    </Link>
+                    </HashLink>
                 </section>
             </article>
         </main>

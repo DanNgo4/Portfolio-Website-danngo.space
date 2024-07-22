@@ -1,80 +1,70 @@
 import express from "express";
+import fs from "fs";
+import admin from "firebase-admin";
 
-import { db, connectToDB } from "./db.js";
+import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
+import { connectToDB } from "./db.js";
+
+// For production
+import "dotenv/config";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const credentials = JSON.parse(
+    fs.readFileSync("./ignore/credentials.json")
+);
+admin.initializeApp({
+    credential: admin.credential.cert(credentials),
+});
 
 const app = express();
 app.use(express.json());
 
-/* app.get("/hello/:id", (req, res) => {
-    const { id } = req.params;    // object destructuring
-    // const id = req.params.id;
-    res.send(`Hello ${id}!!`);
-}); */
+// For production
+app.use(express.static(path.join(__dirname, "../build")));
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 
-app.get("/api/portfolio/:id/", async (req, res) => {
-    const { id } = req.params;
+const PORT = process.env.PORT || 8000;
 
-    const project = await db.collection("projects").findOne({ id });
+app.use( async (req, res, next) => {
+    const { authToken } = req.headers;
 
-    if (project) {
-        res.json(project);
+    if (authToken) {
+        try {
+            req.user = await admin.auth().verifyIdToken(authToken);
+        } catch (e) {
+            return res.sendStatus(400);
+        }
+    }
+
+    req.user = req.user || {};
+
+    next();
+});
+
+app[getProjectEndpoint.method](getProjectEndpoint.path, getProjectEndpoint.handler);
+
+app.use((req, res, next) => {
+    if (req.user) {
+        next();
     } else {
-        res.sendStatus(404);
+        res.sendStatus(401);
     }
 });
 
-app.put("/api/portfolio/:id/upvote", async (req, res) => {
-    const { id } = req.params;
-
-    await db.collection("projects").updateOne({ id }, {
-        $inc: { upvotes: 1 },   // increment upvotes by 1 sadf
-    });
-
-    const project = await db.collection("projects").findOne({ id });
-
-    if (project) {
-        res.json({ upvotes: project.upvotes });
-    } else {
-        res.send("That article doesn't exist");
-    }
+endpoints.forEach(endpoint => {
+    app[endpoint.method](endpoint.path, endpoint.handler);
 });
 
-app.delete("/api/portfolio/:id/upvote", async (req, res) => {
-    const { id } = req.params;
-
-    await db.collection("projects").updateOne({ id }, {
-        $inc: { upvotes: -1 },
-    });
-
-    const project = await db.collection("projects").findOne({ id });
-
-    if (project) {
-        res.json({ upvotes: project.upvotes });
-    } else {
-        res.send("That article doesn't exist");
-    }
-});
-
-app.post("/api/portfolio/:id/comments", async (req, res) => {
-    const { id } = req.params;
-    const { postedBy, text } = req.body;
-
-    await db.collection("projects").updateOne({ id }, {
-        $push: { comments: {postedBy, text} },
-    });
-
-    const project = await db.collection("projects").findOne({ id });
-
-    if (project) {
-        res.send(project.comments);
-    } else {
-        res.send("That project doesn't exist");
-    }
-});
-
+// Connect to the database, then start the server.
+// This prevents creating a new DB connection for every request.
 connectToDB(() => {
     console.log("Successfully connected to database!");
-    app.listen(8000, () => {
-        console.log("Server is listening on port 8000");
+    app.listen(PORT, () => {
+        console.log(`Server is listening on port ${PORT}`);
     });
 });

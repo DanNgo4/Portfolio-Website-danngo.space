@@ -1,11 +1,11 @@
 import { HashRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navigation/NavBar";
 import MainPage from "./pages/MainPage";
-import Footer from "./components/Footer";
+import Footer from "./components/navigation/Footer";
 
-function App() {
+const App = () => {
   const history = createBrowserHistory();
 
   return (
@@ -17,6 +17,6 @@ function App() {
       </div>
     </HashRouter>
   );
-}
+};
 
 export default App;

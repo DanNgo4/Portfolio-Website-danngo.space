@@ -1,4 +1,4 @@
-import resume from "../media/others/DanNgoResume.pdf";
+import resume from "../../media/others/DanNgoResume.pdf";
 
 const Resume = () => (
     <iframe

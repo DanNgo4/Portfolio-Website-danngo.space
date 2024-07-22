@@ -5,9 +5,11 @@ import axios from "axios";
 
 import NotFoundPage from "./NotFoundPage";
 
-import ProjectUpvote from "../../components/ProjectUpvote";
-import ProjectCommentForm from "../../components/ProjectCommentForm";
-import ProjectCommentsList from "../../components/ProjectCommentsList";
+import ProjectUpvote from "../../components/project-page/ProjectUpvote";
+import ProjectCommentForm from "../../components/project-page/ProjectCommentForm";
+import ProjectCommentsList from "../../components/project-page/ProjectCommentsList";
+
+import useUser from "../../hooks/useUser";
 
 import projects from "../../media/content/ProjectsAttributesList";
 
@@ -15,6 +17,8 @@ const ProjectPage = () => {
     const [projectInfo, setProjectInfo] = useState({ upvotes: 0, comments: [] });
     const { projectID } = useParams();
     const project = projects.find(project => (project.id === projectID));
+
+    const { user, isLoading } = useUser();
 
     useEffect(() => {
         if (project) {
@@ -30,8 +34,8 @@ const ProjectPage = () => {
                 const response = await axios.get(`/api/portfolio/${projectID}`);
                 const newProjectInfo = response.data;
                 setProjectInfo(newProjectInfo);
-            } catch (error) {
-                console.error("Error loading project info:", error);
+            } catch (e) {
+                console.error("Error loading project info", e);
             }
         };
 
@@ -46,8 +50,6 @@ const ProjectPage = () => {
     };
 
     if (!project) return <NotFoundPage />;
-
-    console.log(projectInfo.upvotes);
 
     return (
         <main className="min-h-[29vw] max-w-[70vw] md:max-w-[50vw] ml-[15vw] md:ml-[25vw] text-left">

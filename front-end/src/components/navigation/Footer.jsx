@@ -3,12 +3,12 @@ import { HashLink } from "react-router-hash-link";
 
 import Divider from "@mui/material/Divider";
 
-import Logo from "../media/logos/Logo0.png";
-import FacebookLogo from "../media/logos/FacebookLogo1.png";
-import GitHubLogo from "../media/logos/GitHubLogo1.png";
-import EmailLogo from "../media/logos/EmailLogo1.png";
-import LinkedInLogo from "../media/logos/LinkedInLogo1.png";
-import XLogo from "../media/logos/XLogo1.png";
+import Logo from "../../media/logos/Logo0.png";
+import FacebookLogo from "../../media/logos/FacebookLogo1.png";
+import GitHubLogo from "../../media/logos/GitHubLogo1.png";
+import EmailLogo from "../../media/logos/EmailLogo1.png";
+import LinkedInLogo from "../../media/logos/LinkedInLogo1.png";
+import XLogo from "../../media/logos/XLogo1.png";
 
 const Footer = () => (
     <footer className="bg-[var(--head-foot-bg)] p-8 md:p-16 flex flex-col md:flex-row items-center md:items-start">
@@ -21,9 +21,9 @@ const Footer = () => (
                 <li className="footer-li"><NavLink to="/"                  className="footer-btn">Home</NavLink></li>
                 <li className="footer-li"><NavLink to="/about"             className="footer-btn">About</NavLink></li>
                 <li className="footer-li"><NavLink to="/portfolio"         className="footer-btn">Portfolio</NavLink></li>
-                <li className="footer-li"><NavLink to="/feedback"          className="footer-btn">Feedback</NavLink></li>
-                <li className="footer-li"><HashLink to="/portfolio#Resume" className="footer-btn">Resume</HashLink></li>
-                <li><HashLink to="/about#Social"     className="footer-btn">Contact</HashLink></li>
+                {/* <li className="footer-li"><NavLink to="/feedback"          className="footer-btn">Feedback</NavLink></li> */}
+                <li className="footer-li"><HashLink smooth to="/portfolio#Resume" className="footer-btn">Resume</HashLink></li>
+                <li><HashLink smooth to="/about#Social" className="footer-btn">Contact</HashLink></li>
             </ul>
 
             <Divider style={{

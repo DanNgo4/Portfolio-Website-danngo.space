@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import Divider from "@mui/material/Divider";
 
-import Resume from "../../components/Resume";
-import ProjectList from "../../components/ProjectList";
+import Resume from "../../components/portfolio-page/Resume";
+import ProjectList from "../../components/portfolio-page/ProjectList";
 
 const PortfolioPage = () => {
     useEffect(() => {

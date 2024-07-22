@@ -1,4 +1,4 @@
-import ProjectFigure from "../../../../components/ProjectFigure";
+import ProjectFigure from "../../../../components/project-page/ProjectFigure";
 
 import Figure1 from "./Figure1.png";
 import Figure2 from "./Figure2.png";
