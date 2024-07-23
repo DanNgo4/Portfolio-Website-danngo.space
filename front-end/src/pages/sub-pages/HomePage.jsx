@@ -17,7 +17,7 @@ const HomePage = () => {
                 <section className="md:col-span-2">
                     <h2 className="text-3xl font-bold">Hello World! Welcome to Dan Ngo's Website</h2>
                     <p>I am delighted to have you in my digital space! My name's Dan, currently a second-year Computer Science student at&nbsp;
-                        <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="underline text-blue-500 hover:bg-[var(--article-bg)]">
+                        <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="hyperlink">
                             Swinburne University of Technology
                         </Link>.
                     </p><br />
@@ -53,13 +53,13 @@ const HomePage = () => {
 
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 text-2xl md:text-4xl">
                     <HashLink smooth to="/portfolio/portfolio-website#Feedback" className="justify-self-center md:justify-self-end">
-                        <div className="Box0 md:w-52 md:hover:w-[29.125rem]">
+                        <div className="expandable-box md:w-52 md:hover:w-[29.125rem]">
                             <span className="md:hidden">Kindly drop your</span>&nbsp;Feedback
                         </div>
                     </HashLink>
 
                     <HashLink smooth to="/about#Social" className="justify-self-center md:justify-self-start">
-                        <div className="Box0 md:w-56 md:hover:w-[35.625rem]">
+                        <div className="expandable-box md:w-56 md:hover:w-[35.625rem]">
                             Contact Me&nbsp;<span className="md:hidden">through Social Media</span>
                         </div>
                     </HashLink>

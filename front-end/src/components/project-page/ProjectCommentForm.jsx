@@ -1,26 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
+
 import DOMPurify from "dompurify";
 
-const ProjectCommentForm = ({ projectID, onAddComment }) => {
-    const [name, setName] = useState("");
+const ProjectCommentForm = ({ projectID, onAddComment, user, token }) => {
+    const navigate=  useNavigate();
+
+    const [email, setEmail] = useState("");
     const [comment, setComment] = useState("");
+
+    useEffect(() => {
+        if (user) {
+            setEmail(user.email);
+        }
+    }, [user]);
 
     const sanitiseInput = (input) => DOMPurify.sanitize(input);
 
-    const addComment = async () => {
+    const addComment = async (e) => {
+        e.preventDefault();
         try {
+            const sanitisedComment = { 
+                postedBy: sanitiseInput(email),
+                text: sanitiseInput(comment)
+            };
+            const headers = token ? { authtoken: token } : {};
+
             const res = await axios.post(
                 `/api/portfolio/${projectID}/comments`,
-                {
-                    postedBy: sanitiseInput(name),
-                    text: sanitiseInput(comment),
-                }
+
+                sanitisedComment,
+
+                { headers }
             );
             const updatedProject = res.data;
             onAddComment(updatedProject);
-            setName("");
+            setEmail("");
             setComment("");
         } catch (e) {
             console.error("Error updating comment");
@@ -31,18 +48,8 @@ const ProjectCommentForm = ({ projectID, onAddComment }) => {
         <section id="Feedback">
             <h2 className="font-bold text-2xl mb-4">Add a comment</h2>
 
-            <form>
-                <p>
-                    <label htmlFor="name">Name:</label><br />
-                    <input
-                        required
-                        id="name"
-                        type="text"
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        className="project-input-box h-12"
-                    />
-                </p>
+            <form onSubmit={addComment}>
+                {token && user && <p>You are posting as {user.email}</p>}
 
                 <p>
                     <label htmlFor="comment">Comment:</label><br />
@@ -56,13 +63,22 @@ const ProjectCommentForm = ({ projectID, onAddComment }) => {
                     />
                 </p>
 
-                <input
-                    type="submit"
-                    value="Add Comment"
-                    disabled={!name || !comment}
-                    onClick={addComment}
-                    className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]" 
-                />
+                {
+                    token ? <input
+                                type="submit"
+                                value="Add Comment"
+                                disabled={!comment}
+                                className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]" 
+                            />
+                          : <button
+                                onClick={() => navigate("/log-in")}
+                                className="border-2 border-[var(--apple-black)] hover:bg-white duration-500 p-4"
+                            >
+                                Log In to comment
+                            </button>
+                }
+
+                
             </form>
         </section>
     );

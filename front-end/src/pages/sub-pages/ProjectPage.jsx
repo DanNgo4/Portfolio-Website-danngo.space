@@ -14,11 +14,13 @@ import useUser from "../../hooks/useUser";
 import projects from "../../media/content/ProjectsAttributesList";
 
 const ProjectPage = () => {
-    const [projectInfo, setProjectInfo] = useState({ upvotes: 0, comments: [] });
+    const [projectInfo, setProjectInfo] = useState({ upvotes: 0, comments: [], upvoted: false });
+
     const { projectID } = useParams();
     const project = projects.find(project => (project.id === projectID));
 
     const { user, isLoading } = useUser();
+    const [token, setToken] = useState(null); // Declare token state
 
     useEffect(() => {
         if (project) {
@@ -28,10 +30,14 @@ const ProjectPage = () => {
         }
     }, [project]);
 
+
     useEffect(() => {
         const loadProjectInfo = async () => {
             try {
-                const response = await axios.get(`/api/portfolio/${projectID}`);
+                const authtoken = user && await user.getIdToken();
+                setToken(authtoken); // Set token state
+                const headers = authtoken ? { authtoken: authtoken } : {};
+                const response = await axios.get(`/api/portfolio/${projectID}`, { headers });
                 const newProjectInfo = response.data;
                 setProjectInfo(newProjectInfo);
             } catch (e) {
@@ -39,15 +45,10 @@ const ProjectPage = () => {
             }
         };
 
-        loadProjectInfo();
-    }, [projectID]);
-
-    const addNewComment = (newComment) => {
-        setProjectInfo(prevInfo => ({
-            ...prevInfo,
-            comments: [...prevInfo.comments, newComment]
-        }));
-    };
+        if (!isLoading) {
+            loadProjectInfo();
+        }
+    }, [isLoading, user, projectID]);
 
     if (!project) return <NotFoundPage />;
 
@@ -74,12 +75,23 @@ const ProjectPage = () => {
 
             <article className="mt-16">
                 <ProjectUpvote 
+                    projectID={project.id}
                     initialUpvotes={projectInfo.upvotes}
-                    projectID={project.id} 
+                    initialUpvoted={projectInfo.upvoted}
+                    onUpdateUpvotes={(updatedProject) => setProjectInfo(prev => ({
+                        ...prev,
+                        ...updatedProject
+                    }))}
+                    token={token}
                 />
                 <ProjectCommentForm 
                     projectID={project.id} 
-                    onAddComment={addNewComment}
+                    onAddComment={(updatedProject) => setProjectInfo(prev => ({
+                        ...prev,
+                        ...updatedProject
+                    }))}
+                    user={user}
+                    token={token}
                 />
                 <ProjectCommentsList comments={projectInfo.comments} /> 
             </article>

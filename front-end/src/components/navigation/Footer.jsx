@@ -18,12 +18,14 @@ const Footer = () => (
 
         <section className="flex flex-col items-center md:items-start w-full">
             <ul className="flex flex-col items-center md:flex-row mb-4 md:mb-0 text-center md:text-left">
-                <li className="footer-li"><NavLink to="/"                  className="footer-btn">Home</NavLink></li>
-                <li className="footer-li"><NavLink to="/about"             className="footer-btn">About</NavLink></li>
-                <li className="footer-li"><NavLink to="/portfolio"         className="footer-btn">Portfolio</NavLink></li>
+                <li className="footer-li"><NavLink to="/"                         className="footer-btn">Home</NavLink></li>
+                <li className="footer-li"><NavLink to="/about"                    className="footer-btn">About</NavLink></li>
+                <li className="footer-li"><NavLink to="/portfolio"                className="footer-btn">Portfolio</NavLink></li>
                 {/* <li className="footer-li"><NavLink to="/feedback"          className="footer-btn">Feedback</NavLink></li> */}
                 <li className="footer-li"><HashLink smooth to="/portfolio#Resume" className="footer-btn">Resume</HashLink></li>
-                <li><HashLink smooth to="/about#Social" className="footer-btn">Contact</HashLink></li>
+                <li className="footer-li"><HashLink smooth to="/about#Social"     className="footer-btn">Contact</HashLink></li>
+                <li className="footer-li"><NavLink to="/log-in"                   className="footer-btn">Log In</NavLink></li>
+                <li                      ><NavLink to="/sign-up"                  className="footer-btn">Sign Up</NavLink></li>
             </ul>
 
             <Divider style={{

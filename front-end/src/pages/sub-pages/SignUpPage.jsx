@@ -45,13 +45,13 @@ const SignUpPage = () => {
     };
     
     return (
-        <main className="flex justify-center py-[20vh]">
+        <main className="flex justify-center py-[15vh]">
             <form onSubmit={signUp}>
-                <h1 className="text-center font-bold text-4xl mb-6">Welcome to my Web App!</h1>
-                { error && <p className="mb-6 text-red-500 text-center">Error: {error}</p> }
+                <h1 className="log-sign-h1">Welcome to my Web App!</h1>
+                { error && <p className="log-sign-error">Error: {error}</p> }
 
-                <fieldset className="flex flex-col items-center border-[3px] border-solid rounded border-[var(--apple-black)] p-8">
-                    <p className="grid grid-cols-2 my-2">
+                <fieldset className="log-sign-fieldset">
+                    <p className="log-sign-input-row">
                         <label htmlFor="signUpEmail">
                             Email
                         </label>
@@ -63,16 +63,16 @@ const SignUpPage = () => {
                             type="email"
                             required
                             placeholder="Your email address"
-                            className="border border-solid rounded border-black pl-3"
+                            className="log-sign-input"
                         />
                     </p>
 
-                    <section className="grid grid-cols-2 my-2">
+                    <section className="log-sign-input-row">
                         <label htmlFor="signUpPwd">
                             Password
                         </label>
 
-                        <div className="relative flex items-center">
+                        <div className="pwd-container">
                             <input 
                                 id="signUpPwd"
                                 value={pwd}
@@ -80,12 +80,14 @@ const SignUpPage = () => {
                                 type="password"
                                 required
                                 placeholder="Your password"
-                                className="border border-solid rounded border-black pl-3"
+                                className="log-sign-input"
                             />
 
                             <TogglableBtn
                                 Btn1={<ShowPwd />}
                                 Btn2={<HidePwd />}
+                                state={showPwd}
+                                setState={setShowPwd}
                                 callback={() => toggleShowPwd("signUpPwd", showPwd, setShowPwd)}
                                 style={{
                                     position: "absolute",
@@ -96,12 +98,12 @@ const SignUpPage = () => {
                         </div>
                     </section>
 
-                    <section className="grid grid-cols-2 my-2">
+                    <section className="log-sign-input-row">
                         <label htmlFor="confirmPwd">
                             Confirm Password
                         </label>
 
-                        <div className="relative flex items-center">
+                        <div className="pwd-container">
                             <input 
                                 id="confirmPwd"
                                 value={confirmPwd}
@@ -109,12 +111,14 @@ const SignUpPage = () => {
                                 type="password"
                                 required
                                 placeholder="Confirm password"
-                                className="border border-solid rounded border-black pl-3"
+                                className="log-sign-input"
                             />
 
                             <TogglableBtn
                                 Btn1={<ShowPwd />}
                                 Btn2={<HidePwd />}
+                                state={showConfirmPwd}
+                                setState={setShowConfirmPwd}
                                 callback={() => toggleShowPwd("confirmPwd", showConfirmPwd, setShowConfirmPwd)}
                                 style={{
                                     position: "absolute",
@@ -129,7 +133,7 @@ const SignUpPage = () => {
                         type="submit"
                         value="Sign Up"
                         disabled={!email || !pwd || !confirmPwd }
-                        className="my-4 rounded-2xl bg-gray-300 p-4 md:hover:bg-[var(--apple-white)] md:duration-500"
+                        className="p-4 log-sign-submit-btn"
                     />
 
                     <p>
@@ -137,13 +141,12 @@ const SignUpPage = () => {
                         <HashLink
                             smooth
                             to="/log-in"
-                            className="underline text-blue-500 hover:bg-[var(--article-bg)]"
+                            className="hyperlink"
                         > 
                             Log in here
                         </HashLink>
                     </p>
                 </fieldset>
-                
             </form>
         </main>
     );

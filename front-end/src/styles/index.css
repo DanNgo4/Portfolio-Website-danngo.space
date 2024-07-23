@@ -13,11 +13,18 @@
 }
 
 @layer components {
+  .hyperlink {
+    @apply
+      underline 
+      text-blue-500 
+      hover:bg-[var(--article-bg)]
+  }
+
   .nav-btn {
     @apply 
       text-[var(--apple-white)] 
-      px-8 
-      py-14 
+      px-6
+      py-12 
       hover:text-[var(--apple-black)] 
       hover:bg-[var(--background)] 
       duration-500
@@ -45,7 +52,7 @@
     md:hover:underline
   }
 
-  .Box0 {
+  .expandable-box {
     @apply
       w-[80vw]
       p-5 md:whitespace-nowrap 
@@ -118,6 +125,66 @@
       md:hover:bg-white 
       md:duration-500
   }
+
+  .log-sign-h1 {
+    @apply
+      text-center 
+      font-bold 
+      text-4xl 
+      mb-12
+  }
+
+  .log-sign-error {
+    @apply
+      mb-6 
+      -mt-6 
+      text-red-500 
+      text-center
+  }
+
+  .log-sign-fieldset {
+    @apply
+      flex 
+      flex-col 
+      items-center 
+      border-[3px] 
+      border-solid 
+      rounded 
+      border-[var(--apple-black)] 
+      p-8
+  }
+
+  .log-sign-input-row {
+    @apply
+      grid 
+      grid-cols-2 
+      my-2
+  }
+
+  .log-sign-input {
+    @apply
+      border 
+      border-solid 
+      rounded 
+      border-black 
+      pl-3
+  }
+
+  .pwd-container {
+    @apply
+      relative 
+      flex 
+      items-center
+  }
+
+  .log-sign-submit-btn {
+    @apply
+      my-4 
+      rounded-2xl 
+      bg-gray-300 
+      md:hover:bg-[var(--apple-white)] 
+      md:duration-500
+  }
 }
 
 body {
@@ -145,6 +212,6 @@ footer a.active {
   text-decoration: underline;
 }
 
-div.Box0:hover span {
+div.expandable-box:hover span {
   display: inline;
 }

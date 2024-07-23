@@ -17,10 +17,9 @@ const LogInPage = () => {
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
 
-    const [showPwd, setShowPwd] = useState(false);
-
     const [error, setError] = useState("");
 
+    const [showPwd, setShowPwd] = useState(false);
     const toggleShowPwd = (elementID, state, setState) => {
         setState(!state);
         document.getElementById(elementID).type = state ? "password" : "text";
@@ -33,7 +32,7 @@ const LogInPage = () => {
             await signInWithEmailAndPassword(getAuth(), email, pwd);
             navigate("/portfolio");
         } catch (e) {   
-            if (e.message = "Firebase: Error (auth/invalid-credential).") {
+            if (e.message === "Firebase: Error (auth/invalid-credential).") {
                 e.message ="Wrong Email or Password, please try again!"
             }
             setError(e.message);
@@ -41,48 +40,50 @@ const LogInPage = () => {
     };
     
     return (
-        <main className="flex justify-center items-center py-[20vh]">
+        <main className="flex justify-center items-center py-[15vh]">
             <form onSubmit={logIn}>
-                <h1 className="text-center font-bold text-4xl mb-12">Welcome back!</h1>
-                { error && <p className="mb-6 text-red-500 text-center">Error: {error}</p> }
+                <h1 className="log-sign-h1">Welcome back!</h1>
+                { error && <p className="log-sign-error">Error: {error}</p> }
 
-                <fieldset className="flex flex-col items-center border-[3px] border-solid rounded border-[var(--apple-black)] p-8">
-                    <p className="grid grid-cols-2 my-2">
-                        <label htmlFor="signUpEmail">
+                <fieldset className="log-sign-fieldset">
+                    <p className="log-sign-input-row">
+                        <label htmlFor="logInEmail">
                             Email
                         </label>
 
                         <input 
-                            id="signUpEmail"
+                            id="logInEmail"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                             type="email"
                             required
                             placeholder="Your email address"
-                            className="border border-solid rounded border-black pl-3"
+                            className="log-sign-input"
                         />
                     </p>
 
-                    <section className="grid grid-cols-2 my-2">
-                        <label htmlFor="signUpPwd">
+                    <section className="log-sign-input-row">
+                        <label htmlFor="logInPwd">
                             Password
                         </label>
 
-                        <div className="relative flex items-center">
+                        <div className="pwd-container">
                             <input 
-                                id="signUpPwd"
+                                id="logInPwd"
                                 value={pwd}
                                 onChange={e => setPwd(e.target.value)}
                                 type="password"
                                 required
                                 placeholder="Your password"
-                                className="border border-solid rounded border-black pl-3"
+                                className="log-sign-input"
                             />
 
                             <TogglableBtn
                                 Btn1={<ShowPwd />}
                                 Btn2={<HidePwd />}
-                                callback={() => toggleShowPwd("signUpPwd", showPwd, setShowPwd)}
+                                state={showPwd}
+                                setState={setShowPwd}
+                                callback={() => toggleShowPwd("logInPwd", showPwd, setShowPwd)}
                                 style={{
                                     position: "absolute",
                                     right: "0.25rem",
@@ -96,15 +97,15 @@ const LogInPage = () => {
                         type="submit"
                         value="Log In"
                         disabled={!email || !pwd}
-                        className="my-4 rounded-2xl bg-gray-300 p-3 md:hover:bg-[var(--apple-white)] md:duration-500"
+                        className="p-3 log-sign-submit-btn"
                     />
 
                     <p>
                         Haven't had an account?&nbsp;
                         <HashLink
                             smooth
-                            to="/log-in"
-                            className="underline text-blue-500 hover:bg-[var(--article-bg)]"
+                            to="/sign-up"
+                            className="hyperlink"
                         > 
                             Sign up here
                         </HashLink>

@@ -31,11 +31,11 @@ app.get(/^(?!\/api).+/, (req, res) => {
 const PORT = process.env.PORT || 8000;
 
 app.use( async (req, res, next) => {
-    const { authToken } = req.headers;
+    const { authtoken } = req.headers;
 
-    if (authToken) {
+    if (authtoken) {
         try {
-            req.user = await admin.auth().verifyIdToken(authToken);
+            req.user = await admin.auth().verifyIdToken(authtoken);
         } catch (e) {
             return res.sendStatus(400);
         }

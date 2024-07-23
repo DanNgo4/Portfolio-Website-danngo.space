@@ -11,7 +11,7 @@ export const postProjectCommentRoute = {
         const { email } = req.user;
 
         const sanitisedComment = {
-            postedBy: sanitizeHtml(postedBy),
+            postedBy: sanitizeHtml(email),
             text: sanitizeHtml(text)
         };
     
@@ -22,7 +22,7 @@ export const postProjectCommentRoute = {
         const project = await db.collection("projects").findOne({ projectID });
     
         if (project) {
-            res.send(project.comments);
+            res.json(project);
         } else {
             res.send("That project doesn't exist");
         }

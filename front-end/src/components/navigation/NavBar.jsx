@@ -2,10 +2,16 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+import { getAuth, signOut } from "firebase/auth";
+
+import useUser from "../../hooks/useUser";
+
 import Logo from "../../media/logos/Logo0.png";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const { user } = useUser();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -13,19 +19,24 @@ const NavBar = () => {
 
     return (
         <header className="bg-[var(--head-foot-bg)]">
-            <nav className="text-3xl py-6">
+            <nav className="text-2xl py-6">
                 <section className="containter mx-auto flex justify-between items-center">
                     <Link to="/" className="ml-8">
                         <img src={Logo} alt="Dan Ngo Logo" />
                     </Link>
 
                     <ul className="hidden md:flex">
-                        <li><NavLink to="/"                  className="nav-btn">Home</NavLink></li>
-                        <li><NavLink to="/about"             className="nav-btn">About</NavLink></li>
-                        <li><NavLink to="/portfolio"         className="nav-btn">Portfolio</NavLink></li>
+                        <li><NavLink to="/"                                    className="nav-btn">Home</NavLink></li>
+                        <li><NavLink to="/about"                               className="nav-btn">About</NavLink></li>
+                        <li><NavLink to="/portfolio"                           className="nav-btn">Portfolio</NavLink></li>
                         {/* <li><NavLink to="/feedback"          className="nav-btn">Feedback</NavLink></li> */}
-                        <li><HashLink smooth to="/portfolio#Resume" className="nav-btn">Resume</HashLink></li>
-                        <li><HashLink smooth to="/about#Social"     className="nav-btn">Contact</HashLink></li>
+                        <li><HashLink smooth to="/portfolio#Resume"            className="nav-btn">Resume</HashLink></li>
+                        <li><HashLink smooth to="/about#Social"                className="nav-btn">Contact</HashLink></li>
+                        <li>{
+                            user ? <Link onClick={() => signOut(getAuth())}    className="nav-btn">Log Out</Link>
+                                 : <NavLink to="/log-in"                       className="nav-btn">Log In</NavLink>
+                        }</li>
+                        <li><NavLink to="/sign-up"                             className="nav-btn">Sign Up</NavLink></li>
                     </ul>
 
                     <button id="menu-btn" className="text-[var(--apple-white)] md:hidden focus:outline-none mr-8" onClick={toggleMenu}>
@@ -42,6 +53,8 @@ const NavBar = () => {
                     {/* <li><NavLink to="/feedback" onClick={toggleMenu}          className="nav-btn-mobile">Feedback</NavLink></li> */}
                     <li><HashLink to="/portfolio#Resume" onClick={toggleMenu} className="nav-btn-mobile">Resume</HashLink></li>
                     <li><HashLink to="/about#Social" onClick={toggleMenu}     className="nav-btn-mobile">Contact</HashLink></li>
+                    <li><NavLink to="/log-in" onClick={toggleMenu}            className="nav-btn-mobile">Log In</NavLink></li>
+                    <li><NavLink to="/sign-up" onClick={toggleMenu}           className="nav-btn-mobile">Sign Up</NavLink></li>
                 </ul>
             </nav>
         </header>

@@ -1,9 +1,6 @@
-import { useState } from "react";
-
 import IconBtn from "@mui/material/IconButton";
 
-const TogglableBtn = ({ Btn1, Btn2, callback, style }) => {
-    const [state, setState] = useState(false);  // state for UI changes
+const TogglableBtn = ({ Btn1, Btn2, state, setState, callback, style }) => {
 
     const toggle = async () => {
         setState(!state);

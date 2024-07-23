@@ -11,7 +11,7 @@ const useUser = () => {
             setUser(user);
             setIsLoading(false);
         });
-
+        
         return unsubscribe;
     }, []);
 
