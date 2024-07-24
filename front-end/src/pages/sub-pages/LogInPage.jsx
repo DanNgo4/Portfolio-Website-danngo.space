@@ -58,7 +58,7 @@ const LogInPage = () => {
                             type="email"
                             required
                             placeholder="Your email address"
-                            className="log-sign-input"
+                            className="log-sign-input-box"
                         />
                     </p>
 
@@ -75,7 +75,7 @@ const LogInPage = () => {
                                 type="password"
                                 required
                                 placeholder="Your password"
-                                className="log-sign-input"
+                                className="log-sign-input-box"
                             />
 
                             <TogglableBtn

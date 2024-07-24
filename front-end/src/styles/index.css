@@ -13,13 +13,16 @@
 }
 
 @layer components {
+  /* <Universal> */
   .hyperlink {
     @apply
       underline 
       text-blue-500 
       hover:bg-[var(--article-bg)]
   }
+  /* </Universal> */
 
+  /* <NavBar> */
   .nav-btn {
     @apply 
       text-[var(--apple-white)] 
@@ -37,7 +40,9 @@
       px-8 
       py-10
   }
+  /* </NavBar> */
 
+  /* <Footer> */
   .footer-li {
     @apply
       mb-2 
@@ -51,7 +56,9 @@
     text-xl 
     md:hover:underline
   }
+  /* </Footer> */
 
+  /* <HomePage> */
   .expandable-box {
     @apply
       w-[80vw]
@@ -61,7 +68,9 @@
       md:duration-[1200ms] 
       overflow-hidden
   }
+  /* </HomePage> */
 
+  /* <AboutPage> */
   .about-contact-logo {
     @apply
       w-10 
@@ -69,37 +78,37 @@
       md:w-16 
       md:h-16
   }
+  /* </AboutPage> */
 
+  /* <PortfolioPage> */
   .port-filter-box {
     @apply
       border 
-      border-solid 
       rounded 
       border-black 
       p-2
+  }
+  /* </PortfolioPage> */
+
+  /* <ProjectPage> */
+  .project-info {
+    @apply
+      font-semibold 
+      text-xl 
+      text-blue-800 
+      col-span-1
   }
 
   .project-text {
     @apply
       my-4
   }
+  /* </ProjectPage> */
 
-  .project-input-box {
-    @apply
-      border-2 
-      border-solid 
-      rounded-lg
-      border-black
-      p-2
-      mb-4
-      w-[70vw]
-      md:w-96
-  }
-
+  /* <FeedbackPage> */
   .feedback-fieldset {
     @apply
       border 
-      border-solid 
       rounded 
       border-gray-400 
       p-4
@@ -109,7 +118,6 @@
     @apply
       w-56
       border 
-      border-solid 
       rounded 
       border-black
   }
@@ -125,7 +133,9 @@
       md:hover:bg-white 
       md:duration-500
   }
+  /* </FeedbackPage> */
 
+  /* <LogIn + SignUp> */
   .log-sign-h1 {
     @apply
       text-center 
@@ -148,7 +158,6 @@
       flex-col 
       items-center 
       border-[3px] 
-      border-solid 
       rounded 
       border-[var(--apple-black)] 
       p-8
@@ -161,10 +170,9 @@
       my-2
   }
 
-  .log-sign-input {
+  .log-sign-input-box {
     @apply
       border 
-      border-solid 
       rounded 
       border-black 
       pl-3
@@ -185,6 +193,7 @@
       md:hover:bg-[var(--apple-white)] 
       md:duration-500
   }
+  /* </LogIn + SignUp> */
 }
 
 body {

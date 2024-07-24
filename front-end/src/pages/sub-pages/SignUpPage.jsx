@@ -63,7 +63,7 @@ const SignUpPage = () => {
                             type="email"
                             required
                             placeholder="Your email address"
-                            className="log-sign-input"
+                            className="log-sign-input-box"
                         />
                     </p>
 
@@ -80,7 +80,7 @@ const SignUpPage = () => {
                                 type="password"
                                 required
                                 placeholder="Your password"
-                                className="log-sign-input"
+                                className="log-sign-input-box"
                             />
 
                             <TogglableBtn
@@ -111,7 +111,7 @@ const SignUpPage = () => {
                                 type="password"
                                 required
                                 placeholder="Confirm password"
-                                className="log-sign-input"
+                                className="log-sign-input-box"
                             />
 
                             <TogglableBtn

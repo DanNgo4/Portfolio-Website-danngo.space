@@ -21,7 +21,7 @@ const Projects = [
         introduction: "My developing portfolio website using React.js and Tailwind CSS for FrontEnd so far, soon to start deploying Back End, and Database.",
         content: <PortfolioWebsite />,
         url: "https://github.com/DanNgo4/Portfolio-Website-danngo.space",
-        featured: false,
+        featured: true,
     }, 
 
     {
@@ -58,7 +58,7 @@ const Projects = [
         introduction: "A project involves cleaning and preparing a dataset of 100,000 entries, and building Naïve Bayes and Random Forest models in KNIME for prediction.",
         content: <DataScienceKnime />,
         url: "https://github.com/DanNgo4/Data-Cleaning-and-Analytics-in-Knime",
-        featured: true
+        featured: false
     },
 
     {

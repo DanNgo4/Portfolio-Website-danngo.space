@@ -8,23 +8,53 @@ export const postProjectCommentRoute = {
     handler: async (req, res) => {
         const { projectID } = req.params;
         const { text } = req.body;
-        const { email } = req.user;
+        const user = req.user;
+
+        // backend validations
+        if (!user || !user.uid) {
+            return res.status(401).send("Unauthorised: No user information found");
+        }
+
+        if (!text || typeof text !== "string") {
+            return res.status(400).send("Bad Request: Comment text is required and must be a string");
+        }
+
+        const { email } = user;
+
+        const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const day = date.getDate();
+            const month = date.toLocaleString("default", { month: "long" });
+            const year = date.getFullYear();
+        
+            const formattedHours = hours < 10 ? '0' + hours : hours;
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            return `${formattedHours}:${formattedMinutes} ${day}-${month}-${year}`;
+        };
 
         const sanitisedComment = {
             postedBy: sanitizeHtml(email),
-            text: sanitizeHtml(text)
+            postedAt: formatDate(new Date()),
+            text: sanitizeHtml(text),
         };
-    
-        await db.collection("projects").updateOne({ projectID }, {
-            $push: { comments: sanitisedComment },
-        });
-    
-        const project = await db.collection("projects").findOne({ projectID });
-    
-        if (project) {
-            res.json(project);
-        } else {
-            res.send("That project doesn't exist");
+
+        try {
+            const project = await db.collection("projects").findOne({ projectID });
+
+            if (!project) return res.status(404).send("Project not found");
+
+            await db.collection("projects").updateOne({ projectID }, {
+                $push: { comments: sanitisedComment },
+            });
+
+            const updatedProject = await db.collection("projects").findOne({ projectID });  // fetch the updated project to return
+            res.json(updatedProject);
+        } catch (e) {
+            res.status(500).send("Internal Server Error: An error occurred while posting the comment");
         }
     }
 };

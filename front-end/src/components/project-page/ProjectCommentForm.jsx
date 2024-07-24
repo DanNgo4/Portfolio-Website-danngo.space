@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
 import DOMPurify from "dompurify";
 
-const ProjectCommentForm = ({ projectID, onAddComment, user, token }) => {
-    const navigate=  useNavigate();
-
+const ProjectCommentForm = ({ projectID, callback, user, token }) => {
     const [email, setEmail] = useState("");
     const [comment, setComment] = useState("");
 
@@ -36,7 +34,7 @@ const ProjectCommentForm = ({ projectID, onAddComment, user, token }) => {
                 { headers }
             );
             const updatedProject = res.data;
-            onAddComment(updatedProject);
+            callback(updatedProject);
             setEmail("");
             setComment("");
         } catch (e) {
@@ -59,7 +57,7 @@ const ProjectCommentForm = ({ projectID, onAddComment, user, token }) => {
                         value={comment}
                         onChange={e => setComment(e.target.value)}
                         rows="5"
-                        className="project-input-box"
+                        className="border-2 rounded-lg border-black p-2 mb-4 w-[70vw] md:w-96"
                     />
                 </p>
 
@@ -70,15 +68,12 @@ const ProjectCommentForm = ({ projectID, onAddComment, user, token }) => {
                                 disabled={!comment}
                                 className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]" 
                             />
-                          : <button
-                                onClick={() => navigate("/log-in")}
-                                className="border-2 border-[var(--apple-black)] hover:bg-white duration-500 p-4"
-                            >
-                                Log In to comment
-                            </button>
+                          : <Link to="/log-in">
+                                <button className="border-2 border-[var(--apple-black)] hover:bg-white duration-500 p-4">
+                                    Log In to comment
+                                </button>
+                            </Link>
                 }
-
-                
             </form>
         </section>
     );

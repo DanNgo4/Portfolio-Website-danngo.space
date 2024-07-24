@@ -29,14 +29,18 @@ const NavBar = () => {
                         <li><NavLink to="/"                                    className="nav-btn">Home</NavLink></li>
                         <li><NavLink to="/about"                               className="nav-btn">About</NavLink></li>
                         <li><NavLink to="/portfolio"                           className="nav-btn">Portfolio</NavLink></li>
-                        {/* <li><NavLink to="/feedback"          className="nav-btn">Feedback</NavLink></li> */}
                         <li><HashLink smooth to="/portfolio#Resume"            className="nav-btn">Resume</HashLink></li>
                         <li><HashLink smooth to="/about#Social"                className="nav-btn">Contact</HashLink></li>
+
+                        <li>{
+                            user ? <p className="text-[var(--apple-white)] px-6">Welcome Back!</p>
+                                 : <NavLink to="/sign-up"                      className="nav-btn">Sign Up</NavLink>
+                        }</li>
+                        
                         <li>{
                             user ? <Link onClick={() => signOut(getAuth())}    className="nav-btn">Log Out</Link>
                                  : <NavLink to="/log-in"                       className="nav-btn">Log In</NavLink>
                         }</li>
-                        <li><NavLink to="/sign-up"                             className="nav-btn">Sign Up</NavLink></li>
                     </ul>
 
                     <button id="menu-btn" className="text-[var(--apple-white)] md:hidden focus:outline-none mr-8" onClick={toggleMenu}>
@@ -47,14 +51,21 @@ const NavBar = () => {
                 </section>
 
                 <ul className={`${menuOpen ? "block" : "hidden"} md:hidden mt-4 space-y-2`}>
-                    <li><NavLink to="/" onClick={toggleMenu}                  className="nav-btn-mobile">Home</NavLink></li>
-                    <li><NavLink to="/about" onClick={toggleMenu}             className="nav-btn-mobile">About</NavLink></li>
-                    <li><NavLink to="/portfolio" onClick={toggleMenu}         className="nav-btn-mobile">Portfolio</NavLink></li>
-                    {/* <li><NavLink to="/feedback" onClick={toggleMenu}          className="nav-btn-mobile">Feedback</NavLink></li> */}
-                    <li><HashLink to="/portfolio#Resume" onClick={toggleMenu} className="nav-btn-mobile">Resume</HashLink></li>
-                    <li><HashLink to="/about#Social" onClick={toggleMenu}     className="nav-btn-mobile">Contact</HashLink></li>
-                    <li><NavLink to="/log-in" onClick={toggleMenu}            className="nav-btn-mobile">Log In</NavLink></li>
-                    <li><NavLink to="/sign-up" onClick={toggleMenu}           className="nav-btn-mobile">Sign Up</NavLink></li>
+                    <li><NavLink to="/" onClick={toggleMenu}                         className="nav-btn-mobile">Home</NavLink></li>
+                    <li><NavLink to="/about" onClick={toggleMenu}                    className="nav-btn-mobile">About</NavLink></li>
+                    <li><NavLink to="/portfolio" onClick={toggleMenu}                className="nav-btn-mobile">Portfolio</NavLink></li>
+                    <li><HashLink smooth to="/portfolio#Resume" onClick={toggleMenu} className="nav-btn-mobile">Resume</HashLink></li>
+                    <li><HashLink smooth to="/about#Social" onClick={toggleMenu}     className="nav-btn-mobile">Contact</HashLink></li>
+
+                    <li>{
+                        user ? <p className="nav-btn-mobile">Welcome Back!</p>
+                             : <NavLink to="/sign-up" onClick={toggleMenu}           className="nav-btn-mobile">Sign Up</NavLink>
+                    }</li>
+                    
+                    <li>{
+                        user ? <Link onClick={() => signOut(getAuth())}              className="nav-btn-mobile">Log Out</Link>
+                             : <NavLink to="/log-in" onClick={toggleMenu}            className="nav-btn-mobile">Log In</NavLink>
+                    }</li>
                 </ul>
             </nav>
         </header>

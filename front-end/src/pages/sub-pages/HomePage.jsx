@@ -42,7 +42,7 @@ const HomePage = () => {
                 <span className="text-5xl md:text-7xl mb-4 md:mb-0 md:mr-2 ml-0 md:ml-12 rotate-90 md:rotate-0">&#8594;</span>
 
                 <Link to="/about">
-                    <button className="bg-[#FDFBF7] border-8 border-solid border-[#006FAD] px-8 py-4 md:px-16 md:py-8 rounded-full text-lg md:text-2xl font-bold 
+                    <button className="bg-[#FDFBF7] border-8 border-[#006FAD] px-8 py-4 md:px-16 md:py-8 rounded-full text-lg md:text-2xl font-bold 
                                     duration-700 hover:bg-[#006FAD] hover:text-[#FDFBF7]">About Me</button>
                 </Link>
             </article>
