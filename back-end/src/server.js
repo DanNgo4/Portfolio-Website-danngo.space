@@ -3,13 +3,14 @@ import express from "express";
 import fs from "fs";
 import admin from "firebase-admin";
 
+import "dotenv/config";
+
 import cors from "cors";
 
 import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
 import { connectToDB } from "./db.js";
 
 // For production
-import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
