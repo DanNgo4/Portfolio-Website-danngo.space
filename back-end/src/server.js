@@ -1,6 +1,9 @@
 import express from "express";
+
 import fs from "fs";
 import admin from "firebase-admin";
+
+import cors from "cors";
 
 import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
 import { connectToDB } from "./db.js";
@@ -21,6 +24,7 @@ admin.initializeApp({
 
 const app = express();
 app.use(express.json());
+app.use(cors());    // Enable CORS for all routes
 
 // For production
 app.use(express.static(path.join(__dirname, "../build")));
