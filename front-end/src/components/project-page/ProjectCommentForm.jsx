@@ -5,6 +5,8 @@ import axios from "axios";
 
 import DOMPurify from "dompurify";
 
+import { backendURL } from "../../backendURL";
+
 const ProjectCommentForm = ({ projectID, callback, user, token }) => {
     const [email, setEmail] = useState("");
     const [comment, setComment] = useState("");
@@ -24,10 +26,12 @@ const ProjectCommentForm = ({ projectID, callback, user, token }) => {
                 postedBy: sanitiseInput(email),
                 text: sanitiseInput(comment)
             };
+            
             const headers = token ? { authtoken: token } : {};
+            
 
             const res = await axios.post(
-                `/api/portfolio/${projectID}/comments`,
+                `${backendURL}/api/portfolio/${projectID}/comments`,
 
                 sanitisedComment,
 

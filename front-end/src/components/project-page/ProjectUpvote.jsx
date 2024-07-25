@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
+import { backendURL } from "../../backendURL";
+
 import ThumbUp from "@mui/icons-material/ThumbUpAlt";
 import ThumbUpOff from "@mui/icons-material/ThumbUpOffAlt";
 
@@ -24,11 +26,12 @@ const ProjectUpvote = ({ projectID, initialUpvotes, initialUpvoted, onUpdateUpvo
     const toggleUpvote = async () => {
         try {
             const headers = token ? { authtoken: token } : {};
+
             let res;
             if (liked) {
-                res = await axios.delete(`/api/portfolio/${projectID}/decrement-upvote`, {headers});
+                res = await axios.delete(`${backendURL}/api/portfolio/${projectID}/decrement-upvote`, {headers});
             } else {
-                res = await axios.put(`/api/portfolio/${projectID}/increment-upvote`, null, {headers});
+                res = await axios.put(`${backendURL}/api/portfolio/${projectID}/increment-upvote`, null, {headers});
                 // null is request's body
             }
             const updatedProject = res.data;

@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 
 import axios from "axios";
 
+import { backendURL } from "../../backendURL";
+
 import NotFoundPage from "./NotFoundPage";
 
 import ProjectUpvote from "../../components/project-page/ProjectUpvote";
@@ -30,14 +32,14 @@ const ProjectPage = () => {
         }
     }, [project]);
 
-
     useEffect(() => {
         const loadProjectInfo = async () => {
             try {
                 const authtoken = user && await user.getIdToken();
                 setToken(authtoken); // Set token state
                 const headers = authtoken ? { authtoken: authtoken } : {};
-                const res = await axios.get(`/api/portfolio/${projectID}`, { headers });
+
+                const res = await axios.get(`${backendURL}/api/portfolio/${projectID}`, { headers });
                 const newProjectInfo = res.data;
                 setProjectInfo(newProjectInfo);
             } catch (e) {

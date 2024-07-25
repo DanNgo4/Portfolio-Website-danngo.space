@@ -25,7 +25,7 @@ yarn-error.log*
 #original images
 /src/original_images
 
-/src/reportWebVitals.js
+/src/backendURL.js
 /src/store.js
 /src/pages/sub-pages/FeedbackPage.jsx
 
