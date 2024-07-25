@@ -11,11 +11,6 @@ import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
 import { connectToDB } from "./db.js";
 
 // For production
-import path from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const credentials = JSON.parse(
     fs.readFileSync("./credentials.json")
 );
@@ -26,12 +21,6 @@ admin.initializeApp({
 const app = express();
 app.use(express.json());
 app.use(cors());    // Enable CORS for all routes
-
-// For production
-app.use(express.static(path.join(__dirname, "../build")));
-app.get(/^(?!\/api).+/, (req, res) => {
-    res.sendFile(path.join(__dirname, "../build/index.html"));
-});
 
 const PORT = process.env.PORT || 8000;
 
