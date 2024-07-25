@@ -1,9 +1,7 @@
-/build
 /mongo-db-data
 /node_modules
 
 /ignore
 
-.gcloudignore
-app.yaml
 .env
+credentials.json
