@@ -4,7 +4,7 @@ import HomePage from "./sub-pages/HomePage";
 import AboutPage from "./sub-pages/AboutPage";
 import PortfolioPage from "./sub-pages/PortfolioPage";
 import ProjectPage from "./sub-pages/ProjectPage";
-import FeedbackPage from "./sub-pages/FeedbackPage"; 
+/* import FeedbackPage from "./sub-pages/FeedbackPage";  */
 import SignUpPage from "./sub-pages/SignUpPage";
 import LogInPage from "./sub-pages/LogInPage";
 import NotFoundPage from "./sub-pages/NotFoundPage";
