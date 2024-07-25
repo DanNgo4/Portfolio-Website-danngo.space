@@ -16,6 +16,7 @@ export const getProjectRoute = {
             project.upvoted = user.uid && upvoteIDs.includes(user.uid); // user id/token (uid)
             res.json(project);
         } catch (e) {
+            console.error(e);
             res.status(500).send("Internal Server Error: An error occurred while loading project");
         }
     }

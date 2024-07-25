@@ -16,13 +16,13 @@ async function connectToDB(cb) {    // cb = callback
         await client.connect();
         db = await client.db("danngo-space-db");
         cb();
-    } catch (err) {
-        console.error("Failed to connect to the database", err);
+    } catch (e) {
+        console.error("Failed to connect to the database", e);
         process.exit(1); // Exit the process with a failure code
-    } finally {
+    } /* finally {
         // Ensures that the client will close when you finish/error
         await client.close();
-    }
+    } */
 }
 
 export {
