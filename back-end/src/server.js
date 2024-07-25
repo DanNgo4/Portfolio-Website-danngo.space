@@ -12,9 +12,9 @@ import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
 import { connectToDB } from "./db.js";
 
 // For production
-import { fileURLToPath } from "url";
+/* import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(__filename); */
 const credentials = JSON.parse(
     fs.readFileSync("./credentials.json")
 );
@@ -28,13 +28,17 @@ app.use(cors());    // Enable CORS for all routes
 
 const PORT = process.env.PORT || 8000;
 
-app.get("/*", function (req, res) {
+app.get("/", (req, res) => {
+    res.send("Render succeeded!");
+});
+
+/* app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "dist/index.html"), function (err) {
       if (err) {
         res.status(500).send(err);
       }
     });
-  });
+  }); */
   
 // middleware checking if user has logged in with verified token
 app.use( async (req, res, next) => {

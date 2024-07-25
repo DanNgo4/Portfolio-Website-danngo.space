@@ -22,7 +22,7 @@ const MainPage = () => {
           <Route path="/portfolio/:projectID"   element={<ProjectPage />} />
           <Route path="/sign-up"                element={<SignUpPage />} />
           <Route path="/log-in"                 element={<LogInPage />} />
-          <Route path="/feedback"               element={<FeedbackPage />} />
+          {/* <Route path="/feedback"               element={<FeedbackPage />} /> */}
           <Route path="/*"                      element={<NotFoundPage />} />
         </Routes>
       </>
