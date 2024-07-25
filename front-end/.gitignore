@@ -27,4 +27,6 @@ yarn-error.log*
 
 /src/reportWebVitals.js
 /src/store.js
-/src/pages/sub-pages/FeedbackPage.jsx
+#/src/pages/sub-pages/FeedbackPage.jsx
+
+.env

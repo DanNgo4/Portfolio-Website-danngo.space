@@ -12,18 +12,7 @@ const PROJECT_TYPE = ["University Project", "Personal Project", "Team Project"];
 const CURRENT_DATE = new Date().toJSON().slice(0, 10);
 
 const Projects = [
-    {
-        id: "portfolio-website",
-        title: "Portfolio Website",
-        type: PROJECT_TYPE[1],
-        finished: false,
-        date: CURRENT_DATE,
-        introduction: "My developing portfolio website using React.js and Tailwind CSS for FrontEnd so far, soon to start deploying Back End, and Database.",
-        content: <PortfolioWebsite />,
-        url: "https://github.com/DanNgo4/Portfolio-Website-danngo.space",
-        featured: true,
-    }, 
-
+    
     {
         id: "meal-planner",
         title: "Meal Planner",
@@ -33,6 +22,18 @@ const Projects = [
         introduction: "A team project developing a web application that allows users to choose a dish’s recipe with multiple types of information such as nutritional values, diet planning, recipe’s price based on location, etc",
         content: <MealPlanner />,
         url: "https://github.com/Renji-and-frens/meal-planner-frontend",
+        featured: true,
+    },
+
+    {
+        id: "portfolio-website",
+        title: "Portfolio Website",
+        type: PROJECT_TYPE[1],
+        finished: false,
+        date: CURRENT_DATE,
+        introduction: "A full-stack MERN application serves as my portfolio website with basic functionalities such as Log In/Sign Up, like & comment for my project articles, etc.",
+        content: <PortfolioWebsite />,
+        url: "https://github.com/DanNgo4/Portfolio-Website-danngo.space",
         featured: true,
     },
 
