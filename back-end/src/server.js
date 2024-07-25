@@ -30,6 +30,10 @@ app.get(/^(?!\/api).+/, (req, res) => {
 
 const PORT = process.env.PORT || 8000;
 
+app.get("/", (req, res) => {
+    res.send("Render succeeded!");
+});
+
 // middleware checking if user has logged in with verified token
 app.use( async (req, res, next) => {
     const { authtoken } = req.headers;
