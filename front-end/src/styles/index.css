@@ -180,8 +180,7 @@
       border 
       rounded 
       border-black 
-      pl-0
-      md:pl-3
+      pl-3
       w-[70vw]
       md:w-auto
   }
