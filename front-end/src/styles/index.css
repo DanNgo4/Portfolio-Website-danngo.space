@@ -180,7 +180,8 @@
       border 
       rounded 
       border-black 
-      pl-3
+      pl-0
+      md:pl-3
   }
 
   .pwd-container {
