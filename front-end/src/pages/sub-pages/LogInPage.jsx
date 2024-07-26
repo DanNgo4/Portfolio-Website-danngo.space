@@ -40,7 +40,7 @@ const LogInPage = () => {
     };
     
     return (
-        <main className="flex justify-center items-center py-[15vh]">
+        <main className="flex justify-center items-center py-[15vh] px-[10vw] md:px-0">
             <form onSubmit={logIn}>
                 <h1 className="log-sign-h1">Welcome back!</h1>
                 { error && <p className="log-sign-error">Error: {error}</p> }
@@ -100,8 +100,10 @@ const LogInPage = () => {
                         className="p-3 log-sign-submit-btn"
                     />
 
-                    <p>
+                    <p className="text-center">
                         Haven't had an account?&nbsp;
+                        <br className="md:hidden" />
+
                         <HashLink
                             smooth
                             to="/sign-up"

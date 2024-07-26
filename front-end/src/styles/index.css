@@ -140,8 +140,10 @@
     @apply
       text-center 
       font-bold 
-      text-4xl 
-      mb-12
+      text-3xl 
+      md:text-4xl 
+      mb-8 
+      md:mb-12
   }
 
   .log-sign-error {
@@ -157,17 +159,20 @@
       flex 
       flex-col 
       items-center 
-      border-[3px] 
+      border-2 
+      md:border-[3px] 
       rounded 
-      border-[var(--apple-black)] 
-      p-8
+      border-gray-800 
+      p-6 
+      md:p-8
   }
 
   .log-sign-input-row {
-    @apply
+    @apply 
       grid 
-      grid-cols-2 
-      my-2
+      grid-cols-1 
+      md:grid-cols-2 
+      my-2 
   }
 
   .log-sign-input-box {

@@ -1,7 +1,7 @@
 const MealPlanner = () => {
     return (
         <section>
-            <p>apoisdhbpia</p>
+            <p className="project-text"></p>
         </section>
     );
 };

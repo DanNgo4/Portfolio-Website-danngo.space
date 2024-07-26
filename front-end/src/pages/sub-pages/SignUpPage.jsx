@@ -136,8 +136,10 @@ const SignUpPage = () => {
                         className="p-4 log-sign-submit-btn"
                     />
 
-                    <p>
+                    <p className="text-center">
                         Already had an account?&nbsp;
+                        <br className="md:hidden" />
+                        
                         <HashLink
                             smooth
                             to="/log-in"

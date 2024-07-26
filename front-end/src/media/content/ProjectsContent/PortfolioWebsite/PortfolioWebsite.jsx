@@ -37,7 +37,7 @@ const PortfolioWebsite = () => {
                 </>}
             />
 
-            <p className="project-text">The Log In/Sign Up pages allow my website's visitors to interact using <Link to="https://firebase.google.com/docs/auth" target="_blank" className="hyperlink">Firebase Auth API</Link>. Once logged in, user would be able to upvote or comment on any of my <Link to="/portfolio" className="hyperlink">projects</Link></p>
+            <p className="project-text">The Log In/Sign Up pages allow visitors to interact with my website using <Link to="https://firebase.google.com/docs/auth" target="_blank" className="hyperlink">Firebase Auth API</Link>. Once logged in, user would be able to upvote or comment on any of my <Link to="/portfolio" className="hyperlink">projects</Link></p>
             <ProjectFigure
                 src={Figure4}
                 alt="danngo.space's Project Page before logging in"
