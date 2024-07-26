@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import projects from "../../media/content/ProjectsAttributesList";
 
@@ -10,10 +10,15 @@ const ProjectList = ({
         return (
             <>
                 {projects.filter(project => project.featured).map(project => (
-                    <NavLink key={project.id} to={`/portfolio/${project.id}`} className="justify-self-center max-w-80 min-h-56 bg-[#F8E382] p-8 shadow-xl hover:bg-[var(--background)] duration-500" target="_blank">
+                    <Link 
+                        key={project.id} 
+                        to={`/portfolio/${project.id}`} 
+                        target="_black"
+                        className="justify-self-center max-w-80 min-h-56 bg-[#F8E382] p-8 shadow-xl hover:bg-[var(--background)] duration-500"
+                    >
                         <h3 className="font-bold text-xl mb-4">{project.title}</h3>
                         <p>{project.introduction}</p>
-                    </NavLink>
+                    </Link>
                 ))}
             </>
         );
@@ -35,7 +40,12 @@ const ProjectList = ({
     return (
         <>
             {filteredProjects.map(project => (
-                <NavLink key={project.id} to={`/portfolio/${project.id}`} className="bg-[var(--article-bg)] p-5 md:p-8 shadow-xl hover:bg-[#00ADAC] duration-500 rounded-2xl w-3/4 justify-center min-h-60 mx-auto flex flex-col" target="_blank">
+                <Link 
+                    key={project.id} 
+                    to={`/portfolio/${project.id}`}
+                    target="_blank"
+                    className="bg-[var(--article-bg)] p-5 md:p-8 shadow-xl hover:bg-[#00ADAC] duration-500 rounded-2xl w-3/4 justify-center min-h-60 mx-auto flex flex-col"
+                >
                     <h3 className="font-bold text-xl mb-4">{project.title}</h3>
                     <p className="flex-grow">{project.introduction}</p>
 
@@ -43,7 +53,7 @@ const ProjectList = ({
                         <h4 className="font-semibold text-sm text-blue-800 col-span-1 text-left">{project.type}</h4>
                         <h4 className="font-semibold text-sm text-blue-800 col-span-1 text-right">{project.finished ? project.date : "In Progress"}</h4>
                     </section>
-                </NavLink>
+                </Link>
             ))}
         </>
     );
