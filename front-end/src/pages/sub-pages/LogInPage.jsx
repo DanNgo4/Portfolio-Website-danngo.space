@@ -45,7 +45,7 @@ const LogInPage = () => {
                 <h1 className="log-sign-h1">Welcome back!</h1>
                 { error && <p className="log-sign-error">Error: {error}</p> }
 
-                <fieldset className="log-sign-fieldset w-[95vw] md:w-auto">
+                <fieldset className="log-sign-fieldset w-[90vw] md:w-auto">
                     <p className="log-sign-input-row">
                         <label htmlFor="logInEmail">
                             Email
