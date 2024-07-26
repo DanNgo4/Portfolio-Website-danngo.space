@@ -1,3 +1,3 @@
 # Portfolio Website: https://danngo.space/
 
-Overview: This is my developing portfolio web application using React.js and Tailwind CSS for FrontEnd, integrating BackEnd using Express.js and MongoDB.
+Overview: A full-stack MERN application serves as my portfolio website with basic functionalities such as Log In/Sign Up using Firebase Auth API, like & comment for my project articles, etc. For further details please visit https://danngo.space/#/portfolio/portfolio-website 
