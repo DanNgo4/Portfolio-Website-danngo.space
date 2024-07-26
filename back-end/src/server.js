@@ -29,7 +29,8 @@ app.use(cors());    // Enable CORS for all routes
 const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
-    res.send("Render succeeded!");
+    //res.send("Render succeeded!");
+    res.sendStatus(200);
 });
 
 /* app.get("/*", function (req, res) {

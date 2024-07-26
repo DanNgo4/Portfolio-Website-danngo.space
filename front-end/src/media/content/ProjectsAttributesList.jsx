@@ -12,7 +12,6 @@ const PROJECT_TYPE = ["University Project", "Personal Project", "Team Project"];
 const CURRENT_DATE = new Date().toJSON().slice(0, 10);
 
 const Projects = [
-    
     {
         id: "meal-planner",
         title: "Meal Planner",
@@ -31,7 +30,7 @@ const Projects = [
         type: PROJECT_TYPE[1],
         finished: false,
         date: CURRENT_DATE,
-        introduction: "A full-stack MERN application serves as my portfolio website with basic functionalities such as Log In/Sign Up, like & comment for my project articles, etc.",
+        introduction: "A full-stack MERN application serves as my portfolio website with basic functionalities such as Log In/Sign Up using Firebase Auth API, like & comment for my project articles, etc.",
         content: <PortfolioWebsite />,
         url: "https://github.com/DanNgo4/Portfolio-Website-danngo.space",
         featured: true,
