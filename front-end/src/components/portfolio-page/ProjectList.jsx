@@ -13,7 +13,6 @@ const ProjectList = ({
                     <Link 
                         key={project.id} 
                         to={`/portfolio/${project.id}`} 
-                        target="_black"
                         className="justify-self-center max-w-80 min-h-56 bg-[#F8E382] p-8 shadow-xl hover:bg-[var(--background)] duration-500"
                     >
                         <h3 className="font-bold text-xl mb-4">{project.title}</h3>
@@ -43,7 +42,6 @@ const ProjectList = ({
                 <Link 
                     key={project.id} 
                     to={`/portfolio/${project.id}`}
-                    target="_blank"
                     className="bg-[var(--article-bg)] p-5 md:p-8 shadow-xl hover:bg-[#00ADAC] duration-500 rounded-2xl w-3/4 justify-center min-h-60 mx-auto flex flex-col"
                 >
                     <h3 className="font-bold text-xl mb-4">{project.title}</h3>

@@ -30,11 +30,13 @@ const Footer = () => {
                     <li className="footer-li"><NavLink to="/portfolio"                className="footer-btn">Portfolio</NavLink></li>
                     <li className="footer-li"><HashLink smooth to="/portfolio#Resume" className="footer-btn">Resume</HashLink></li>
                     <li className="footer-li"><HashLink smooth to="/about#Social"     className="footer-btn">Contact</HashLink></li>
-                    {!user && <li className="footer-li"><NavLink to="/sign-up"        className="footer-btn">Sign Up</NavLink></li>}
-                    <li>{
+
+                    <li className="footer-li">{
                         user ? <Link onClick={() => signOut(getAuth())}               className="footer-btn">Log Out</Link>
                              : <NavLink to="/log-in"                                  className="footer-btn">Log In</NavLink>
                     }</li>
+
+                    { !user && <li><NavLink to="/sign-up"        className="footer-btn">Sign Up</NavLink></li> }
                 </ul>
 
                 <Divider style={{
