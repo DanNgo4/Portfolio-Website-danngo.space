@@ -21,7 +21,7 @@ export const postProjectCommentRoute = {
 
         const { email } = user;
 
-        const formatDate = (dateString) => {
+        /* const formatDate = (dateString) => {
             const date = new Date(dateString);
             
             const hours = date.getHours();
@@ -32,13 +32,17 @@ export const postProjectCommentRoute = {
         
             const formattedHours = hours < 10 ? '0' + hours : hours;
             const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-            
-            return `${formattedHours}:${formattedMinutes} ${day}-${month}-${year}`;
-        };
+            const formattedDay = day < 10 ? '0' + day : day;
+
+            return `${formattedHours}:${formattedMinutes} ${formattedDay}-${month}-${year}`;
+        }; */
+
+        let date = new Date();
+        const melbourneDate = date.toLocaleString("en-AU", {timeZone: "Australia/Melbourne"})
 
         const sanitisedComment = {
             postedBy: sanitizeHtml(email),
-            postedAt: formatDate(new Date()),
+            postedAt: melbourneDate,
             text: sanitizeHtml(text),
         };
 
