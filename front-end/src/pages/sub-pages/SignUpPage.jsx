@@ -7,6 +7,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import ShowPwd from "@mui/icons-material/Visibility";
 import HidePwd from "@mui/icons-material/VisibilityOff";
+import UnChecked from "@mui/icons-material/Close";
+import Checked from "@mui/icons-material/Check";
 
 import { backendURL } from "../../backendURL";
 
@@ -14,6 +16,14 @@ import { sanitiseInput } from "../../utils/sanitiseInput";
 import { toggleShowPwd } from "../../utils/toggleShowPwd";
 
 import TogglableBtn from "../../components/TogglableBtn";
+
+const setStyle = (state) => {
+    return state ? "text-green-500" : "text-red-500";
+};
+
+const CheckIcon = ({ state }) => {
+    return state ? <Checked className="text-green-500 mb-[0.125rem]" /> : <UnChecked className="text-red-500 mb-[0.125rem]" />;
+};
 
 const SignUpPage = () => {
     useEffect(() => {
@@ -27,6 +37,28 @@ const SignUpPage = () => {
 
     const [showPwd, setShowPwd] = useState(false);
     const [showConfirmPwd, setShowConfirmPwd] = useState(false);
+
+    const [charNum, setCharNum] = useState(0);
+    const [lowercase, setLowerCase] = useState(false);
+    const [uppercase, setUpperCase] = useState(false);
+    const [num, setNum] = useState(false);
+    const [specialChar, setSpecialChar] = useState(false);
+
+    useEffect(() => {
+        checkPwd(pwd);
+    }, [pwd]);
+
+    const checkPwd = (pwd) => {
+        setCharNum(pwd.length > 7);
+        setLowerCase(/[a-z]/.test(pwd));
+        setUpperCase(/[A-Z]/.test(pwd));
+        setNum(/\d/.test(pwd));
+        setSpecialChar(/[^A-Za-z0-9]/.test(pwd));
+    };
+
+    const isPwdValid = () => {
+        return charNum && lowercase && uppercase && num && specialChar;
+    };
 
     const navigate = useNavigate();
     const signUp = async (e) => {
@@ -63,7 +95,7 @@ const SignUpPage = () => {
     };
     
     return (
-        <main className="flex justify-center py-[15vh]">
+        <main className="flex justify-center py-[5vh]">
             <form onSubmit={signUp}>
                 <h1 className="log-sign-h1">Welcome to my Web App!</h1>
                 { error && <p className="log-sign-error">Error: {error}</p> }
@@ -147,10 +179,38 @@ const SignUpPage = () => {
                         </div>
                     </section>
 
+                    <p className="mt-4 font-semibold">Password Requirements:</p>
+                    <ul className="list-disc text-left">
+                        <li className={setStyle(charNum)}>
+                            At least 8 characters 
+                            <CheckIcon state={charNum} />
+                        </li>
+
+                        <li className={setStyle(lowercase)}>
+                            Contains lowercase letter
+                            <CheckIcon state={lowercase} />
+                        </li>
+
+                        <li className={setStyle(uppercase)}>
+                            Contains uppercase letter
+                            <CheckIcon state={uppercase} />
+                        </li>
+
+                        <li className={setStyle(num)}>
+                            Contains number
+                            <CheckIcon state={num} />
+                        </li>
+
+                        <li className={setStyle(specialChar)}>
+                            Contains special character
+                            <CheckIcon state={specialChar} />
+                        </li>
+                    </ul>
+
                     <input 
                         type="submit"
                         value="Sign Up"
-                        disabled={!email || !pwd || !confirmPwd }
+                        disabled={!email || !pwd || !confirmPwd || !isPwdValid() }
                         className="p-4 log-sign-submit-btn"
                     />
 

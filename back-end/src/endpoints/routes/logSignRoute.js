@@ -18,6 +18,16 @@ export const signUpRoute = {
             return res.status(422).send("Bad Request: Confirm Password is required as a string");
         }
 
+        if (!(
+            (pwd.length > 7) && 
+            (/[a-z]/.test(pwd)) && 
+            (/[A-Z]/.test(pwd)) && 
+            (/\d/.test(pwd)) &&
+            (/[^A-Za-z0-9]/.test(pwd))
+        )) {
+            return res.status(422).send("Bad Request: Password needs to satisfy all requirements");
+        }
+
         const sanitisedEmail = sanitizeHtml(email);
         const sanitisedPwd = sanitizeHtml(pwd);
 

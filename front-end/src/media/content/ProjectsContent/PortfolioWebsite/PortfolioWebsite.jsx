@@ -4,8 +4,9 @@ import ProjectFigure from "../../../../components/project-page/ProjectFigure";
 import Figure1 from "./Figure1.gif";
 import Figure2 from "./Figure2.gif";
 import Figure3 from "./Figure3.gif";
-import Figure4 from "./Figure4.png";
+import Figure4 from "./Figure4.gif";
 import Figure5 from "./Figure5.png";
+import Figure6 from "./Figure6.png";
 
 const PortfolioWebsite = () => {
     return (
@@ -37,19 +38,28 @@ const PortfolioWebsite = () => {
                 </>}
             />
 
-            <p className="project-text">The Log In/Sign Up pages allow visitors to interact with my website using <Link to="https://firebase.google.com/docs/auth" target="_blank" className="hyperlink">Firebase Auth API</Link>. Once logged in, user would be able to upvote or comment on any of my <Link to="/portfolio" className="hyperlink">projects</Link></p>
+            <p className="project-text">
+                The Log In/Sign Up pages allow visitors to interact with my website using <Link to="https://firebase.google.com/docs/auth" target="_blank" className="hyperlink">Firebase Auth API</Link>. Once logged in, user would be able to upvote or comment on any of my <Link to="/portfolio" className="hyperlink">projects</Link>.
+                <br />
+                <Link to="/sign-up" className="hyperlink">Sign Up Page</Link> implements Password Strength features on both Client and Server side, enhancing user account's security with an interative User Interface.
+            </p>
             <ProjectFigure
-                src={Figure4}
-                alt="danngo.space's Project Page before logging in"
-                title={<>
-                    Figure 4: Before logging in
-                </>}
+                src={Figure4} 
+                alt="danngo.space's Sign Up Page"
+                title="Figure 4: Sign Up Page with interactive password strength"
             />
             <ProjectFigure
                 src={Figure5}
+                alt="danngo.space's Project Page before logging in"
+                title={<>
+                    Figure 5: Before logging in
+                </>}
+            />
+            <ProjectFigure
+                src={Figure6}
                 alt="danngo.space's Project Page after logging in"
                 title={<>
-                    Figure 5: After logging in
+                    Figure 6: After logging in
                 </>}
             />
         </section>
