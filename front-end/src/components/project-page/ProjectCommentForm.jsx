@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
-import DOMPurify from "dompurify";
-
 import { backendURL } from "../../backendURL";
+
+import { sanitiseInput } from "../../utils/sanitiseInput";
 
 const ProjectCommentForm = ({ projectID, callback, user, token }) => {
     const [comment, setComment] = useState("");
-
-    const sanitiseInput = (input) => DOMPurify.sanitize(input);
 
     const addComment = async (e) => {
         e.preventDefault();
@@ -21,7 +19,6 @@ const ProjectCommentForm = ({ projectID, callback, user, token }) => {
             };
             
             const headers = token ? { authtoken: token } : {};
-            
 
             const res = await axios.post(
                 `${backendURL}/api/portfolio/${projectID}/comments`,

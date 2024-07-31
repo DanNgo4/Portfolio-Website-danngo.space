@@ -19,10 +19,7 @@ async function connectToDB(cb) {    // cb = callback
     } catch (e) {
         console.error("Failed to connect to the database", e);
         process.exit(1); // Exit the process with a failure code
-    } /* finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
-    } */
+    }
 }
 
 export {

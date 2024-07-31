@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { HashLink } from "react-router-hash-link"
+import { useNavigate, Link } from "react-router-dom";
+
+import axios from "axios";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import ShowPwd from "@mui/icons-material/Visibility";
 import HidePwd from "@mui/icons-material/VisibilityOff";
+
+import { backendURL } from "../../backendURL";
+
+import { sanitiseInput } from "../../utils/sanitiseInput";
+import { toggleShowPwd } from "../../utils/toggleShowPwd";
 
 import TogglableBtn from "../../components/TogglableBtn";
 
@@ -16,26 +22,39 @@ const LogInPage = () => {
 
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
-
     const [error, setError] = useState("");
 
     const [showPwd, setShowPwd] = useState(false);
-    const toggleShowPwd = (elementID, state, setState) => {
-        setState(!state);
-        document.getElementById(elementID).type = state ? "password" : "text";
-    };
 
     const navigate = useNavigate();
     const logIn = async (e) => {
         e.preventDefault();
         try {
-            await signInWithEmailAndPassword(getAuth(), email, pwd);
-            navigate("/portfolio");
+            const sanitisedUser = {
+                email: sanitiseInput(email),
+                pwd: sanitiseInput(pwd)
+            };
+
+            const res = await axios.post(
+                `${backendURL}/api/log-in`, 
+                
+                sanitisedUser
+            );
+
+            signInWithEmailAndPassword(getAuth(), res.data.email, res.data.pwd)
+                .then(() => {
+                    navigate("/portfolio");
+                })
+                .catch((e) => {
+                    if (e.message === "Firebase: Error (auth/invalid-credential).") {
+                        e.message ="Wrong Email or Password, please try again!";
+                    }
+                    setError(e.message);
+
+                    console.error("",);
+                });
         } catch (e) {   
-            if (e.message === "Firebase: Error (auth/invalid-credential).") {
-                e.message ="Wrong Email or Password, please try again!"
-            }
-            setError(e.message);
+            console.error("",);
         }
     };
     
@@ -104,13 +123,12 @@ const LogInPage = () => {
                         Haven't had an account?&nbsp;
                         <br className="md:hidden" />
 
-                        <HashLink
-                            smooth
+                        <Link
                             to="/sign-up"
                             className="hyperlink"
                         > 
                             Sign up here
-                        </HashLink>
+                        </Link>
                     </p>
                 </fieldset>
             </form>

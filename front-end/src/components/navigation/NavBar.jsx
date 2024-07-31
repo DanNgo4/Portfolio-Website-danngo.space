@@ -10,7 +10,7 @@ import Logout from "@mui/icons-material/Logout";
 import Menu from "@mui/icons-material/Menu";
 import MenuOpen from "@mui/icons-material/MenuOpen";
 
-import useUser from "../../hooks/useUser";
+import useUser from "../../utils/hooks/useUser";
 
 import TogglableBtn from "../TogglableBtn";
 

@@ -11,7 +11,7 @@ import ProjectUpvote from "../../components/project-page/ProjectUpvote";
 import ProjectCommentForm from "../../components/project-page/ProjectCommentForm";
 import ProjectCommentsList from "../../components/project-page/ProjectCommentsList";
 
-import useUser from "../../hooks/useUser";
+import useUser from "../../utils/hooks/useUser";
 
 import projects from "../../media/content/ProjectsAttributesList";
 

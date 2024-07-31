@@ -1,20 +1,21 @@
 import express from "express";
-import path from "path";
-
-import fs from "fs";
-import admin from "firebase-admin";
 
 import "dotenv/config";
 
 import cors from "cors";
 
-import { getProjectEndpoint, endpoints } from "./endpoints/endpoints.js";
+import fs from "fs";
+import admin from "firebase-admin";
+
+import { endpoints0, getProjectEndpoint, endpoints1 } from "./endpoints/endpoints.js";
 import { connectToDB } from "./db.js";
 
 // For production
-/* import { fileURLToPath } from "url";
+/* import path from "path";
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); */
+
 const credentials = JSON.parse(
     fs.readFileSync("./credentials.json")
 );
@@ -31,6 +32,10 @@ const PORT = process.env.PORT || 8000;
 app.get("/", (req, res) => {
     //res.send("Render succeeded!");
     res.sendStatus(200);
+});
+
+endpoints0.forEach(endpoint => {
+    app[endpoint.method](endpoint.path, endpoint.handler);
 });
 
 /* app.get("/*", function (req, res) {
@@ -68,7 +73,7 @@ app.use((req, res, next) => {
     }
 });
 
-endpoints.forEach(endpoint => {
+endpoints1.forEach(endpoint => {
     app[endpoint.method](endpoint.path, endpoint.handler);
 });
 

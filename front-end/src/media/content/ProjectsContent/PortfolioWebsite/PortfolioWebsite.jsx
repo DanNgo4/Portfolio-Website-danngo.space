@@ -42,7 +42,7 @@ const PortfolioWebsite = () => {
                 src={Figure4}
                 alt="danngo.space's Project Page before logging in"
                 title={<>
-                    Figure 4: Before loggin in
+                    Figure 4: Before logging in
                 </>}
             />
             <ProjectFigure

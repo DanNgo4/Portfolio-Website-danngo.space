@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { HashLink } from "react-router-hash-link"
+import { useNavigate, Link } from "react-router-dom";
+
+import axios from "axios";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import ShowPwd from "@mui/icons-material/Visibility";
 import HidePwd from "@mui/icons-material/VisibilityOff";
+
+import { backendURL } from "../../backendURL";
+
+import { sanitiseInput } from "../../utils/sanitiseInput";
+import { toggleShowPwd } from "../../utils/toggleShowPwd";
 
 import TogglableBtn from "../../components/TogglableBtn";
 
@@ -17,16 +23,10 @@ const SignUpPage = () => {
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const [confirmPwd, setConfirmPwd] = useState("");
+    const [error, setError] = useState("");
 
     const [showPwd, setShowPwd] = useState(false);
     const [showConfirmPwd, setShowConfirmPwd] = useState(false);
-
-    const [error, setError] = useState("");
-
-    const toggleShowPwd = (elementID, state, setState) => {
-        setState(!state);
-        document.getElementById(elementID).type = state ? "password" : "text";
-    };
 
     const navigate = useNavigate();
     const signUp = async (e) => {
@@ -37,10 +37,28 @@ const SignUpPage = () => {
                 return;
             }
 
-            await createUserWithEmailAndPassword(getAuth(), email, pwd);
-            navigate("/portfolio");
+            const sanitisedUser = {
+                email: sanitiseInput(email),
+                pwd: sanitiseInput(pwd),
+                confirmPwd: sanitiseInput(confirmPwd)
+            };
+
+            const res = await axios.post(
+                `${backendURL}/api/sign-up`,
+
+                sanitisedUser
+            );
+
+            createUserWithEmailAndPassword(getAuth(), res.data.email, res.data.pwd)
+                .then(() => {
+                    navigate("/portfolio");
+                })
+                .catch((e) => {
+                    setError(e.message);
+                    console.error("",)
+                });
         } catch (e) {   
-            setError(e.message);
+            console.error("",);
         }
     };
     
@@ -140,13 +158,12 @@ const SignUpPage = () => {
                         Already had an account?&nbsp;
                         <br className="md:hidden" />
                         
-                        <HashLink
-                            smooth
+                        <Link
                             to="/log-in"
                             className="hyperlink"
                         > 
                             Log in here
-                        </HashLink>
+                        </Link>
                     </p>
                 </fieldset>
             </form>

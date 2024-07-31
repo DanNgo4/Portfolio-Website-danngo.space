@@ -5,7 +5,7 @@ import { getAuth, signOut } from "firebase/auth";
 
 import Divider from "@mui/material/Divider";
 
-import useUser from "../../hooks/useUser";
+import useUser from "../../utils/hooks/useUser";
 
 import Logo from "../../media/logos/Logo0.png";
 import FacebookLogo from "../../media/logos/FacebookLogo1.png";
