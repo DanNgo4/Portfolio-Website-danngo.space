@@ -84,6 +84,7 @@ const ProjectPage = () => {
                         ...prev,
                         ...updatedProject
                     }))}
+                    user={user}
                     token={token}
                 />
 

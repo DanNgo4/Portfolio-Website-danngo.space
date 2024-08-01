@@ -10,7 +10,7 @@ import ThumbUpOff from "@mui/icons-material/ThumbUpOffAlt";
 
 import TogglableBtn from "../TogglableBtn";
 
-const ProjectUpvote = ({ projectID, initialUpvotes, initialUpvoted, onUpdateUpvotes, token }) => {
+const ProjectUpvote = ({ projectID, initialUpvotes, initialUpvoted, onUpdateUpvotes, user, token }) => {
 
     const [upvotes, setUpvotes] = useState(0);
     const [liked, setLiked] = useState(false);
@@ -43,21 +43,27 @@ const ProjectUpvote = ({ projectID, initialUpvotes, initialUpvoted, onUpdateUpvo
     };
 
     return (
-        <section className="flex justify-center mb-4">
+        <section className="flex flex-row justify-center items-center mb-4">
             {
-                token ? <TogglableBtn 
-                            Btn1={<ThumbUpOff />} 
-                            Btn2={<ThumbUp />} 
-                            style={{color: "#1975D2"}}
-                            state={liked}
-                            setState={setLiked}
-                            callback={toggleUpvote}
-                        />
-                      : <Link to="/log-in">
-                            <button className="border-2 border-[var(--apple-black)] p-2 hover:bg-white duration-500">
-                                Log In to upvote
-                            </button>
-                        </Link>
+                !token ?
+                    <Link to="/log-in">
+                        <button className="border-2 border-[var(--apple-black)] p-2 hover:bg-white duration-500">
+                            Log In to upvote
+                        </button>
+                    </Link>
+
+                : !user?.emailVerified ? 
+                    <strong>Please verify your email to upvote.</strong>
+
+                :
+                    <TogglableBtn 
+                        Btn1={<ThumbUpOff />} 
+                        Btn2={<ThumbUp />} 
+                        style={{color: "#1975D2"}}
+                        state={liked}
+                        setState={setLiked}
+                        callback={toggleUpvote}
+                    />
             }
 
             <p className="p-2">This project has <span className="text-[#1976D2] font-bold">{upvotes}</span> upvote(s)</p>

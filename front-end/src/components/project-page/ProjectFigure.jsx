@@ -4,7 +4,7 @@ const ProjectFigure = ({src, alt, title, className}) => {
             <img 
                 src={src}
                 alt={alt}
-                className="md:w-[80%]"
+                className="border-black border-2 md:w-[80%]"
                 loading="lazy" 
             />
             <h3 className="font-bold text-center">{title}</h3>

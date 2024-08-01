@@ -50,7 +50,6 @@ const LogInPage = () => {
                         e.message ="Wrong Email or Password, please try again!";
                     }
                     setError(e.message);
-
                     console.error("",);
                 });
         } catch (e) {   

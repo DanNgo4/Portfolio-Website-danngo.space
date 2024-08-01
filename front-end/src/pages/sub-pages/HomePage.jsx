@@ -41,9 +41,8 @@ const HomePage = () => {
                 <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-0 md:mr-16">Discover my Story</h2>
                 <span className="text-5xl md:text-7xl mb-4 md:mb-0 md:mr-2 ml-0 md:ml-12 rotate-90 md:rotate-0">&#8594;</span>
 
-                <Link to="/about">
-                    <button className="bg-[#FDFBF7] border-8 border-[#006FAD] px-8 py-4 md:px-16 md:py-8 rounded-full text-lg md:text-2xl font-bold 
-                                    duration-700 hover:bg-[#006FAD] hover:text-[#FDFBF7]">About Me</button>
+                <Link to="/about" className="bg-[var(--apple-white)] font-bold border-8 rounded-full border-[var(--btn-blue)] shadow-xl duration-700 hover:bg-[var(--btn-blue)] hover:text-[var(--apple-white)] px-8 md:px-16 py-4 md:py-8 text-lg md:text-2xl">
+                    About Me
                 </Link>
             </article>
 

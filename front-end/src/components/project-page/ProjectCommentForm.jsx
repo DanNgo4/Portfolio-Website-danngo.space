@@ -54,19 +54,24 @@ const ProjectCommentForm = ({ projectID, callback, user, token }) => {
                     />
                 </p>
 
-                { token ? 
-                    <input
-                        type="submit"
-                        value="Add Comment"
-                        disabled={!comment}
-                        className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)]" 
-                    />
-                        : 
-                    <Link to="/log-in">
-                        <button className="border-2 border-[var(--apple-black)] hover:bg-white duration-500 p-4">
-                            Log In to comment
-                        </button>
-                    </Link>
+                { 
+                    !token ? 
+                        <Link to="/log-in">
+                            <button className="border-2 border-[var(--apple-black)] hover:bg-white duration-500 p-4">
+                                Log In to comment
+                            </button>
+                        </Link>
+
+                    : !user?.emailVerified ? 
+                        <strong>Please verify your email to add a comment.</strong>
+
+                    : 
+                        <input
+                            type="submit"
+                            value="Add Comment"
+                            disabled={!comment}
+                            className="w-[70vw] md:w-96 h-14 rounded bg-[var(--apple-black)] text-[var(--apple-white)] shadow-lg" 
+                        />
                 }
             </form>
         </section>

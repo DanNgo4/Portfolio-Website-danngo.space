@@ -9,7 +9,8 @@
   --head-foot-bg: #33AB5F;
   --article-bg: #93DCAE;
   --article-heading: #3A4A40;
-  --about-section-bg: rgba(255,255,173,0.75);
+  --about-section-bg: rgba(255,255,173,0.85);
+  --btn-blue: #006FAD;
 }
 
 @layer components {
@@ -62,11 +63,13 @@
   .expandable-box {
     @apply
       w-[80vw]
-      p-5 md:whitespace-nowrap 
+      p-5
       bg-[#73AEFE] 
       rounded-lg 
-      md:duration-[1200ms] 
       overflow-hidden
+      shadow-xl
+      md:whitespace-nowrap 
+      md:duration-[1200ms] 
   }
   /* </HomePage> */
 
@@ -201,6 +204,42 @@
       md:duration-500
   }
   /* </LogIn + SignUp> */
+
+  /* <EmailVerify> */
+  .email-verify-main {
+    @apply
+      flex 
+      flex-col 
+      justify-center 
+      items-center 
+      p-60
+      max-h-[66vh]
+  }
+
+  .email-verify-h1 {
+    @apply
+      font-bold 
+      text-4xl 
+  }
+
+  .email-verify-p {
+    @apply
+      my-10
+  }
+
+  .email-verify-btn {
+    @apply
+      p-6 
+      font-bold 
+      border-4 
+      rounded-lg 
+      border-[var(--btn-blue)] 
+      shadow-xl 
+      duration-700 
+      hover:bg-[#006FAD] 
+      hover:text-[var(--apple-white)]
+  }
+  /* </EmailVerify> */
 }
 
 body {

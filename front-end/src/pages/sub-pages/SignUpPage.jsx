@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import axios from "axios";
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 
 import ShowPwd from "@mui/icons-material/Visibility";
 import HidePwd from "@mui/icons-material/VisibilityOff";
@@ -83,11 +83,17 @@ const SignUpPage = () => {
 
             createUserWithEmailAndPassword(getAuth(), res.data.email, res.data.pwd)
                 .then(() => {
-                    navigate("/portfolio");
+                    sendEmailVerification(getAuth().currentUser)
+                        .then(() => {
+                            navigate("/verify-email-landing");
+                        });
                 })
                 .catch((e) => {
+                    if (e.message === "Firebase: Error (auth/email-already-in-use).") {
+                        e.message =" An account has already used this email, please try a different one!";
+                    }
                     setError(e.message);
-                    console.error("",)
+                    console.error("",);
                 });
         } catch (e) {   
             console.error("",);

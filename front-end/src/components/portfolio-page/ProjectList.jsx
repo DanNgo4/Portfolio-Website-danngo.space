@@ -33,7 +33,7 @@ const ProjectList = ({
                 return new Date(a.date) - new Date(b.date);
             }
             return 0;
-        });
+        })
     ;
 
     return (
