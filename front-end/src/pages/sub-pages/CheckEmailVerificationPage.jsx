@@ -11,8 +11,7 @@ const CheckEmailVerificationPage = () => {
         let oobCode = searchParams.get("oobCode");
 
         if (oobCode) {
-            const auth = getAuth();
-            applyActionCode(auth, oobCode)
+            applyActionCode(getAuth(), oobCode)
                 .then(() => {
                     navigate("/verify-email-success");
                 })

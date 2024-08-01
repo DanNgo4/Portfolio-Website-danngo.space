@@ -63,7 +63,7 @@ const ProjectCommentForm = ({ projectID, callback, user, token }) => {
                         </Link>
 
                     : !user?.emailVerified ? 
-                        <strong>Please verify your email to add a comment.</strong>
+                        <strong>Please verify your email to add a comment (and perhaps reload this page as well ;)).</strong>
 
                     : 
                         <input

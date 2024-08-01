@@ -212,19 +212,23 @@
       flex-col 
       justify-center 
       items-center 
-      p-60
+      text-center
+      p-16
+      md:p-60
       max-h-[66vh]
   }
 
   .email-verify-h1 {
     @apply
-      font-bold 
-      text-4xl 
+      font-bold
+      text-2xl 
+      md:text-4xl 
   }
 
   .email-verify-p {
     @apply
-      my-10
+      my-5
+      md:my-10
   }
 
   .email-verify-btn {

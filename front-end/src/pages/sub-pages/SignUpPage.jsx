@@ -63,40 +63,34 @@ const SignUpPage = () => {
     const navigate = useNavigate();
     const signUp = async (e) => {
         e.preventDefault();
+        if (pwd !== confirmPwd) {
+            setError("Password mismatch");
+            return;
+        }
+
+        const sanitisedUser = {
+            email: sanitiseInput(email),
+            pwd: sanitiseInput(pwd),
+            confirmPwd: sanitiseInput(confirmPwd)
+        };
+
         try {
-            if (pwd !== confirmPwd) {
-                setError("Password mismatch");
-                return;
-            }
-
-            const sanitisedUser = {
-                email: sanitiseInput(email),
-                pwd: sanitiseInput(pwd),
-                confirmPwd: sanitiseInput(confirmPwd)
-            };
-
             const res = await axios.post(
-                `${backendURL}/api/sign-up`,
+            `${backendURL}/api/sign-up`,
 
-                sanitisedUser
+            sanitisedUser
             );
 
-            createUserWithEmailAndPassword(getAuth(), res.data.email, res.data.pwd)
-                .then(() => {
-                    sendEmailVerification(getAuth().currentUser)
-                        .then(() => {
-                            navigate("/verify-email-landing");
-                        });
-                })
-                .catch((e) => {
-                    if (e.message === "Firebase: Error (auth/email-already-in-use).") {
-                        e.message =" An account has already used this email, please try a different one!";
-                    }
-                    setError(e.message);
-                    console.error("",);
-                });
-        } catch (e) {   
-            console.error("",);
+            const newUserCred = await createUserWithEmailAndPassword(getAuth(), res.data.email, res.data.pwd);
+            await sendEmailVerification(newUserCred.user);
+
+            navigate("/verify-email-landing");
+        } catch (e) {
+            if (e.message === "Firebase: Error (auth/email-already-in-use).") {
+                e.message =" An account has already used this email, please try a different one!";
+            }
+            setError(e.message);
+            console.error("", e);
         }
     };
     
