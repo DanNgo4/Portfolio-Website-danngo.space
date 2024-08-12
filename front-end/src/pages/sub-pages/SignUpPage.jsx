@@ -16,6 +16,7 @@ import { sanitiseInput } from "../../utils/sanitiseInput";
 import { toggleShowPwd } from "../../utils/toggleShowPwd";
 
 import TogglableBtn from "../../components/TogglableBtn";
+import GoogleSignIn from "../../components/GoogleSignIn";
 
 const setStyle = (state) => {
     return state ? "text-green-500" : "text-red-500";
@@ -211,8 +212,10 @@ const SignUpPage = () => {
                         type="submit"
                         value="Sign Up"
                         disabled={!email || !pwd || !confirmPwd || !isPwdValid() }
-                        className="p-4 log-sign-submit-btn"
+                        className="log-sign-submit-btn"
                     />
+                    
+                    <GoogleSignIn />
 
                     <p className="text-center">
                         Already had an account?&nbsp;

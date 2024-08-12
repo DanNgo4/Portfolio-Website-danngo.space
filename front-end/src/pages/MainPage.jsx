@@ -4,13 +4,14 @@ import HomePage from "./sub-pages/HomePage";
 import AboutPage from "./sub-pages/AboutPage";
 import PortfolioPage from "./sub-pages/PortfolioPage";
 import ProjectPage from "./sub-pages/ProjectPage";
-/* import FeedbackPage from "./sub-pages/FeedbackPage";  */
 import SignUpPage from "./sub-pages/SignUpPage";
 import EmailVerificationLandingPage from "./sub-pages/EmailVerificationLandingPage";
 import CheckEmailVerificationPage from "./sub-pages/CheckEmailVerificationPage";
 import EmailVerificationSuccessPage from "./sub-pages/EmailVerificationSuccessPage";
 import EmailVerificationFailPage from "./sub-pages/EmailVerificationFailPage";
 import LogInPage from "./sub-pages/LogInPage";
+import GoogleSignInSuccessPage from "./sub-pages/GoogleSignInSuccessPage";
+import GoogleSignInFailPage from "./sub-pages/GoogleSignInFailPage";
 import NotFoundPage from "./sub-pages/NotFoundPage";
 
 import ScrollToTop from "../components/ScrollToTop";
@@ -30,7 +31,8 @@ const MainPage = () => {
           <Route path="/verify-email-success"   element={<EmailVerificationSuccessPage />} />
           <Route path="/verify-email-fail"      element={<EmailVerificationFailPage />} />
           <Route path="/log-in"                 element={<LogInPage />} />
-          {/* <Route path="/feedback"               element={<FeedbackPage />} /> */}
+          <Route path="/google-sign-in-success" element={<GoogleSignInSuccessPage />} />
+          <Route path="/google-sign-in-fail"    element={<GoogleSignInFailPage />} />
           <Route path="/*"                      element={<NotFoundPage />} />
         </Routes>
       </>

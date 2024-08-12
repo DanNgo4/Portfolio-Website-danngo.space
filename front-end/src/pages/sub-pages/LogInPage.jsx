@@ -14,6 +14,7 @@ import { sanitiseInput } from "../../utils/sanitiseInput";
 import { toggleShowPwd } from "../../utils/toggleShowPwd";
 
 import TogglableBtn from "../../components/TogglableBtn";
+import GoogleSignIn from "../../components/GoogleSignIn";
 
 const LogInPage = () => {
     useEffect(() => {
@@ -115,8 +116,10 @@ const LogInPage = () => {
                         type="submit"
                         value="Log In"
                         disabled={!email || !pwd}
-                        className="p-3 log-sign-submit-btn"
+                        className="log-sign-submit-btn mt-4"
                     />
+
+                    <GoogleSignIn />
 
                     <p className="text-center">
                         Haven't had an account?&nbsp;

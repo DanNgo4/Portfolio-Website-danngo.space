@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const EmailVerificationSuccessPage = () => {
+    useEffect(() => {
+        document.title = "Verification Succeeded";
+    }, []);
+
     return (
         <main className="email-verify-main">
             <h1 className="email-verify-h1">Email Verified Successfully!</h1>
