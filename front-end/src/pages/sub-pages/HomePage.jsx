@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
+import East from '@mui/icons-material/East';
+import South from '@mui/icons-material/South';
+
 import ProjectList from "../../components/portfolio-page/ProjectList";
 
 import PFP from "../../media/images/TransparentPFP0.png";
@@ -38,10 +41,23 @@ const HomePage = () => {
             </article>
 
             <article className="clear-both p-8 md:p-16 flex flex-col md:flex-row items-center justify-center my-8 text-center md:text-left">
-                <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-0 md:mr-16">Discover my Story</h2>
-                <span className="text-5xl md:text-7xl mb-4 md:mb-0 md:mr-2 ml-0 md:ml-12 rotate-90 md:rotate-0">&#8594;</span>
+                <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-0 md:mr-12">Discover my Story</h2>
 
-                <Link to="/about" className="bg-[var(--apple-white)] font-bold border-8 rounded-full border-[var(--btn-blue)] shadow-xl duration-700 hover:bg-[var(--btn-blue)] hover:text-[var(--apple-white)] px-8 md:px-16 py-4 md:py-8 text-lg md:text-2xl">
+                <span className="hidden md:block">
+                    <East 
+                        className="animate-horizontalBounce mr-8"
+                        sx={{ fontSize: 60 }}
+                    />
+                </span>
+                <span className="md:hidden block">
+                    <South 
+                        className="animate-bounce mb-4"
+                        sx={{ fontSize: 40 }}
+                    />
+                </span>
+
+
+                <Link to="/about" className="about-me-btn font-bold border-8 rounded-full border-[var(--btn-blue)] shadow-xl hover:text-[var(--apple-white)] px-8 md:px-16 py-4 md:py-8 text-lg md:text-2xl">
                     About Me
                 </Link>
             </article>
