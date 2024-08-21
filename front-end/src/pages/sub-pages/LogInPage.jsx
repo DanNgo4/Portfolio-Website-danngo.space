@@ -112,6 +112,8 @@ const LogInPage = () => {
                         </div>
                     </section>
 
+                    <Link to="/reset-pwd-landing" className="hyperlink self-end">Forgot Your Password?</Link>
+
                     <input 
                         type="submit"
                         value="Log In"
@@ -122,7 +124,7 @@ const LogInPage = () => {
                     <GoogleSignIn />
 
                     <p className="text-center">
-                        Haven't had an account?&nbsp;
+                        Don't have an account?&nbsp;
                         <br className="md:hidden" />
 
                         <Link

@@ -12,6 +12,7 @@ import EmailVerificationFailPage from "./sub-pages/EmailVerificationFailPage";
 import LogInPage from "./sub-pages/LogInPage";
 import GoogleSignInSuccessPage from "./sub-pages/GoogleSignInSuccessPage";
 import GoogleSignInFailPage from "./sub-pages/GoogleSignInFailPage";
+import ResetPwdLandingPage from "./sub-pages/ResetPwdLandingPage";
 import NotFoundPage from "./sub-pages/NotFoundPage";
 
 import ScrollToTop from "../components/ScrollToTop";
@@ -33,6 +34,7 @@ const MainPage = () => {
           <Route path="/log-in"                 element={<LogInPage />} />
           <Route path="/google-sign-in-success" element={<GoogleSignInSuccessPage />} />
           <Route path="/google-sign-in-fail"    element={<GoogleSignInFailPage />} />
+          <Route path="/reset-pwd-landing"      element={<ResetPwdLandingPage />} />
           <Route path="/*"                      element={<NotFoundPage />} />
         </Routes>
       </>

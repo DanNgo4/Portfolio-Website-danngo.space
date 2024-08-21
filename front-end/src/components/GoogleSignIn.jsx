@@ -11,9 +11,14 @@ const GoogleSignIn = () => {
 
     const googleSignIn = async () => {
         try {
-            await signInWithPopup(getAuth(), new GoogleAuthProvider());
-            navigate("/google-sign-in-success");
-         }
+            const cred = await signInWithPopup(getAuth(), new GoogleAuthProvider());
+            // checks if not new user
+            if (cred.user.metadata.createdAt < cred.user.metadata.lastLoginAt) {
+                navigate("/portfolio");
+            } else {
+                navigate("/google-sign-in-success");
+            }
+        }
         catch (e) {
             navigate("/google-sign-in-fail");
             console.error("Error signing in with Google",);
