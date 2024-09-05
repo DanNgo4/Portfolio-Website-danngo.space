@@ -17,7 +17,7 @@ import TogglableBtn from "../TogglableBtn";
 import Logo from "../../media/logos/Logo0.png";
 
 const NavBar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false); 
 
     const { user } = useUser();
 
