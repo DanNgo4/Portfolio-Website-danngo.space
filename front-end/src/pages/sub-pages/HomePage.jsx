@@ -19,7 +19,7 @@ const HomePage = () => {
             <article className="p-16 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                 <section className="md:col-span-2">
                     <h2 className="text-3xl font-bold">Hello World! Welcome to Dan Ngo's Website</h2>
-                    <p>I am delighted to have you in my digital space! My name's Dan, currently a second-year Computer Science student at&nbsp;
+                    <p>I am delighted to have you in my digital space! My name's Dan, currently a third-year Computer Science student at&nbsp;
                         <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="hyperlink">
                             Swinburne University of Technology
                         </Link>.
