@@ -26,6 +26,7 @@ const AboutPage = () => {
             <article className="bg-[url('./images/FlindersStreetStation1.jpg')] bg-no-repeat bg-cover bg-fixed bg-center h-[40rem] px-4 md:px-36 flex items-center">
                 <section className="bg-[var(--about-section-bg)] max-w-full md:max-w-[28rem] p-4 md:p-8">
                     <h2 className="font-bold text-xl md:text-3xl mb-4">My Journey:</h2>
+
                     <p className="mb-2 text-base md:text-lg">After completing my High School Education in Vietnam, I embarked on an exciting new chapter by venturing overseas to Melbourne, Australia. Here, my pursuit of knowledge led me to enroll in the Computer Science degree at <Link to="https://en.wikipedia.org/wiki/Swinburne_University_of_Technology" target="_blank" className="hyperlink">Swinburne University of Technology</Link>.</p>
 
                     <p className="text-base md:text-lg">Here in Melbourne, I've had the privilege of acquiring an extensive wealth of new knowledge and skills. Additionally, I've also gotten the pleasure of connecting with a diverse network of individuals who have been instrumental in supporting my career development journey.</p>
@@ -42,26 +43,30 @@ const AboutPage = () => {
                                 <img src={FacebookLogo} alt="Facebook Logo" className="about-contact-logo" />
                             </Link>
                         </li>
+
                         <li className="mr-6 md:mr-12">
                             <Link to="https://github.com/DanNgo4" target="_blank">
                                 <img src={GitHubLogo} alt="GitHub Logo" className="about-contact-logo" />
                             </Link>
                         </li>
+
                         <li className="mr-6 md:mr-12">
                             <Link to="mailto:danngo.au@gmail.com">
                                 <img src={EmailLogo} alt="Email Logo" className="about-contact-logo" />
                             </Link>
                         </li>
-                        <li className="mr-6 md:mr-12">
+
+                        <li className="">
                             <Link to="https://www.linkedin.com/in/dan-ngo-71182b261/" target="_blank">
                                 <img src={LinkedInLogo} alt="LinkedIn Logo" className="about-contact-logo" />
                             </Link>
                         </li>
-                        <li>
-                            <Link to="https://twitter.com/DanNgo04" target="_blank">
+
+                        {/* <li>
+                            <Link to="" target="_blank">
                                 <img src={XLogo} alt="X/Twitter Logo" className="about-contact-logo" />
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </section>
             </article>
