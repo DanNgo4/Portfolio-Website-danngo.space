@@ -3,6 +3,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 let db;
 
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@danngo-space-db.tdwcvid.mongodb.net/?retryWrites=true&w=majority&appName=danngo-space-db`;
+// uri = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,

@@ -58,9 +58,9 @@ const Footer = () => {
                     <li className="ml-6">
                         <Link to="https://www.linkedin.com/in/dan-ngo-71182b261/" target="_blank"><img src={LinkedInLogo} alt="LinkedIn Logo" className="h-8" /></Link>
                     </li>
-                    <li className="ml-6">
-                        <Link to="https://twitter.com/DanNgo04" target="_blank"><img src={XLogo} alt="X/Twitter Logo" className="h-8" /></Link>
-                    </li>
+                    {/* <li className="ml-6">
+                        <Link to="" target="_blank"><img src={XLogo} alt="X/Twitter Logo" className="h-8" /></Link>
+                    </li> */}
                 </ul>
             </section>
         </footer>
