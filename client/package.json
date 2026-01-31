@@ -16,7 +16,7 @@
     "dompurify": "^3.2.4",
     "firebase": "^12.7.0",
     "nth-check": ">=2.0.1",
-    "postcss": ">=8.5.2",
+    "postcss": ">=8.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.3",
