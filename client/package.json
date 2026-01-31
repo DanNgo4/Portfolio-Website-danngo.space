@@ -22,14 +22,15 @@
     "react-router-dom": "^6.30.3",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^5.1.0-next.26",
-    "undici": ">=7.18.2",
     "webpack-dev-server": ">=5.2.3"
   },
   "overrides": {
+    "nth-check": ">=2.0.1",
     "fast-xml-parser": "5.3.4",
     "glob": "10.5.0",
     "webpack-dev-server": ">=5.2.3",
     "eslint": "9.26.0",
+    "@eslint/plugin-kit": "0.3.4",
     "postcss": ">=8.5.3"
   },
   "scripts": {
