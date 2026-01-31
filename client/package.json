@@ -21,9 +21,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.30.3",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^5.1.0-next.26",
     "undici": ">=7.18.2",
     "webpack-dev-server": ">=5.2.3"
+  },
+  "overrides": {
+    "fast-xml-parser": "5.3.4"
   },
   "scripts": {
     "start": "react-scripts start",
