@@ -26,7 +26,11 @@
     "webpack-dev-server": ">=5.2.3"
   },
   "overrides": {
-    "fast-xml-parser": "5.3.4"
+    "fast-xml-parser": "5.3.4",
+    "glob": "10.5.0",
+    "webpack-dev-server": ">=5.2.3",
+    "eslint": "9.26.0",
+    "postcss": ">=8.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
